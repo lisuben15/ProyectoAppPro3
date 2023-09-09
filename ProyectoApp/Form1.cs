@@ -10,11 +10,31 @@ using System.Windows.Forms;
 
 namespace ProyectoApp
 {
-    public partial class Form1 : Form
+    public partial class Form1ProyectoApp : Form
     {
-        public Form1()
+        public Form1ProyectoApp()
         {
             InitializeComponent();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblGestionComercial_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1ProyectoApp_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void msArchivo_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }
