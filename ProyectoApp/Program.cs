@@ -16,7 +16,7 @@ namespace ProyectoApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1ProyectoApp());
+            Application.Run(new Form1());
         }
     }
 }

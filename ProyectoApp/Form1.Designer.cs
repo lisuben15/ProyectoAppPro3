@@ -1,6 +1,6 @@
 ﻿namespace ProyectoApp
 {
-    partial class Form1ProyectoApp
+    partial class Form1
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -64,6 +64,7 @@
             this.btnProductos.TabIndex = 1;
             this.btnProductos.Text = "Productos";
             this.btnProductos.UseVisualStyleBackColor = false;
+            this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
             // 
             // btnMarcas
             // 
@@ -87,7 +88,7 @@
             this.btnCategorias.Text = "Categorias";
             this.btnCategorias.UseVisualStyleBackColor = false;
             // 
-            // Form1ProyectoApp
+            // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -98,8 +99,9 @@
             this.Controls.Add(this.btnProductos);
             this.Controls.Add(this.lblGestionComercial);
             this.ForeColor = System.Drawing.Color.DarkGray;
-            this.Name = "Form1ProyectoApp";
-            this.Text = "ProyectoApp";
+            this.IsMdiContainer = true;
+            this.Name = "Form1";
+            this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1ProyectoApp_Load);
             this.ResumeLayout(false);

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ProyectoApp
 {
-    public partial class Form1ProyectoApp : Form
+    public partial class Form1 : Form
     {
-        public Form1ProyectoApp()
+        public Form1()
         {
             InitializeComponent();
         }
@@ -35,6 +35,12 @@ namespace ProyectoApp
         private void msArchivo_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void btnProductos_Click(object sender, EventArgs e)
+        {
+            Form2Productos form2Productos = new Form2Productos();
+            form2Productos.ShowDialog();    
         }
     }
 }
