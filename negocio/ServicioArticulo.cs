@@ -1,12 +1,13 @@
-﻿using ProyectoApp;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using dominio;
 
-namespace dominio
+using dominio;
+namespace negocio
+
 {
     public class ServicioArticulo 
     {
