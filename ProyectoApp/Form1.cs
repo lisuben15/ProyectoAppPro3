@@ -1,4 +1,5 @@
-﻿using System;
+﻿using negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -40,7 +41,8 @@ namespace ProyectoApp
         private void btnProductos_Click(object sender, EventArgs e)
         {
             Form2Productos form2Productos = new Form2Productos();
-            form2Productos.ShowDialog();    
+            form2Productos.ShowDialog();
+
         }
     }
 }

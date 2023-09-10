@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace negocio
 {
@@ -19,11 +20,11 @@ namespace negocio
 
         public AccesoDatos()
         {
-            conexion = new SqlConnection("va la cadena de conexion");
+            conexion = new SqlConnection("server=localhost; database=CATALOGO_P3_DB; integrated security=false; user=sa; password=123456");
             comando = new SqlCommand();
         }
 
-        public void setearConsulta(string consulta)
+        public void setearConsulta(string consulta) // hago la consulta utilizando este metodo
         {
             comando.CommandType = System.Data.CommandType.Text;
             comando.CommandText = consulta;

@@ -23,9 +23,41 @@ namespace negocio
         {
 
         }
-        public List<string> ListarArticulos()
+        public List<Articulo> ListarArticulos()
         {
-            return new List<string>();
+            List<Articulo> lista = new List<Articulo>();
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("SELECT Id, Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio FROM ARTICULOS");
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Articulo aux = new Articulo();
+                    aux.Id = (int)datos.Lector["Id"];
+                    aux.Codigo = (string)datos.Lector["codigo"];
+                    aux.Nombre = (string)datos.Lector["nombre"];
+                    aux.Descripcion = (string)datos.Lector["Descripcion"];
+                   // aux.IdMarca = (int)datos.Lector["IdMarca"];
+                   // aux.IdCategoria = (int)datos.Lector["IdCategoria"];
+                    aux.Precio = (decimal)datos.Lector["Precio"];
+
+                    lista.Add(aux);
+                }
+                return lista;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+             
+           
         }
     }  
 }
