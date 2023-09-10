@@ -1,13 +1,14 @@
-﻿using ProyectoApp.Entidades;
+﻿using ProyectoApp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using dominio;
 
-namespace ProyectoApp.Manager
+namespace dominio
 {
-    public class ServicioArticulo
+    public class ServicioArticulo 
     {
         public void AgregarArticulo(Articulo articulo)
         {
