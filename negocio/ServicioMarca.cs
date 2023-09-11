@@ -12,13 +12,13 @@ namespace negocio
 {
     public class ServicioMarca
     {
-        public static void AgregarMarca(Marca marca)//le agregamos static , sacar si falla!!!
+        public void AgregarMarca(Marca marca)
         {
             AccesoDatos datos = new AccesoDatos();
 
             try
             {
-                datos.setearConsulta("insert into MARCAS  VALUES ("+ marca.Id +",'"+marca.Descripcion+"')");
+                datos.setearConsulta("insert into MARCAS  VALUES ('" + marca.Descripcion + "')");
                 datos.ejecutarAccion();
             }
 

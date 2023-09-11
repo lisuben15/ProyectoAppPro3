@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 using dominio;
@@ -13,6 +14,24 @@ namespace negocio
     {
         public void AgregarArticulo(Articulo articulo)
         {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+               
+                datos.setearConsulta("insert into ARTICULOS values('"+articulo.Codigo+"', '"+articulo.Nombre+"', '"+ articulo.Descripcion+"',"+articulo.IdMarca+" ,"+articulo.IdCategoria+","+articulo.Precio+")");
+                datos.ejecutarAccion();
+            }
+
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
 
         }
         public void ModificarArticulo(Articulo articulo)

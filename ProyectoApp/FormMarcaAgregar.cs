@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace ProyectoApp
 {
-    public partial class FormMarcarAgregar : Form
+    public partial class FormMarcaAgregar : Form
     {
-        public FormMarcarAgregar()
+        public FormMarcaAgregar()
         {
             InitializeComponent();
         }
@@ -27,14 +27,14 @@ namespace ProyectoApp
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             Marca obj = new Marca();
-
+            ServicioMarca servicioMarca = new ServicioMarca();
             try
             {
-                obj.Id = int.Parse(txtElementoId.Text);
+               
                 obj.Descripcion = txtElementoMarca.Text;
-                ServicioMarca.AgregarMarca(obj);
+                servicioMarca.AgregarMarca(obj);
                 MessageBox.Show("Registro Exitoso!");
-                Close();
+                
             }
             catch (Exception ex)
             {

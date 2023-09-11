@@ -30,7 +30,8 @@ namespace ProyectoApp
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-
+           FormProductoAgregar formProductoAgregar = new FormProductoAgregar();
+            formProductoAgregar.ShowDialog();
         }
     }
 }

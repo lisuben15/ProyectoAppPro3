@@ -28,12 +28,12 @@ namespace ProyectoApp
             dataGridView1.DataSource = lista;
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
+     
+
+        private void btnAgregar_Click_1(object sender, EventArgs e)
         {
-            FormMarcarAgregar formMarcasAgregar = new FormMarcarAgregar();
+            FormMarcaAgregar formMarcasAgregar = new FormMarcaAgregar();
             formMarcasAgregar.ShowDialog();
         }
-
-       
     }
 }

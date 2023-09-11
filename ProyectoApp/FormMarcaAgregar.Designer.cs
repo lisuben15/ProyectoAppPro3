@@ -1,6 +1,6 @@
 ﻿namespace ProyectoApp
 {
-    partial class FormMarcarAgregar
+    partial class FormMarcaAgregar
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,6 @@
         {
             this.txtRegArticulo = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.txtElementoId = new System.Windows.Forms.TextBox();
             this.txtElementoMarca = new System.Windows.Forms.TextBox();
             this.lblIdMarca = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
@@ -61,13 +60,6 @@
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // txtElementoId
-            // 
-            this.txtElementoId.Location = new System.Drawing.Point(216, 157);
-            this.txtElementoId.Name = "txtElementoId";
-            this.txtElementoId.Size = new System.Drawing.Size(228, 20);
-            this.txtElementoId.TabIndex = 5;
-            // 
             // txtElementoMarca
             // 
             this.txtElementoMarca.Location = new System.Drawing.Point(215, 244);
@@ -81,9 +73,9 @@
             this.lblIdMarca.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIdMarca.Location = new System.Drawing.Point(42, 154);
             this.lblIdMarca.Name = "lblIdMarca";
-            this.lblIdMarca.Size = new System.Drawing.Size(99, 24);
+            this.lblIdMarca.Size = new System.Drawing.Size(152, 24);
             this.lblIdMarca.TabIndex = 7;
-            this.lblIdMarca.Text = "IdMarca:";
+            this.lblIdMarca.Text = "Id Automático";
             // 
             // lblDescripcion
             // 
@@ -95,7 +87,7 @@
             this.lblDescripcion.TabIndex = 8;
             this.lblDescripcion.Text = "Descripción: ";
             // 
-            // FormMarcarAgregar
+            // FormMarcaAgregar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -103,11 +95,10 @@
             this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.lblIdMarca);
             this.Controls.Add(this.txtElementoMarca);
-            this.Controls.Add(this.txtElementoId);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.txtRegArticulo);
-            this.Name = "FormMarcarAgregar";
-            this.Text = "FormMarcarAgregar";
+            this.Name = "FormMarcaAgregar";
+            this.Text = "FormMarcaAgregar";
             this.Load += new System.EventHandler(this.FormMarcarAgregar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -118,7 +109,6 @@
 
         private System.Windows.Forms.TextBox txtRegArticulo;
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.TextBox txtElementoId;
         private System.Windows.Forms.TextBox txtElementoMarca;
         private System.Windows.Forms.Label lblIdMarca;
         private System.Windows.Forms.Label lblDescripcion;
