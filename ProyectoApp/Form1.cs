@@ -44,5 +44,17 @@ namespace ProyectoApp
             form2Productos.ShowDialog();
 
         }
+
+        private void btnMarcas_Click(object sender, EventArgs e)
+        {
+            Form3Marcas form3Marcas = new Form3Marcas();
+            form3Marcas.ShowDialog();
+        }
+
+        private void btnCategorias_Click(object sender, EventArgs e)
+        {
+            Form4Categorias form4Categorias = new Form4Categorias();
+            form4Categorias.ShowDialog();
+        }
     }
 }
