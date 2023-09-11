@@ -27,5 +27,10 @@ namespace ProyectoApp
 
             dataGridView1.DataSource = lista;
         }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -38,9 +38,9 @@ namespace negocio
                     aux.Id = (int)datos.Lector["Id"];
                     aux.Codigo = (string)datos.Lector["codigo"];
                     aux.Nombre = (string)datos.Lector["nombre"];
-                    aux.Descripcion = (string)datos.Lector["Descripcion"];
-                   // aux.IdMarca = (int)datos.Lector["IdMarca"];
-                   // aux.IdCategoria = (int)datos.Lector["IdCategoria"];
+                    aux.Descripcion = (string)datos.Lector["Descripcion"]
+                   aux.IdMarca = (int)datos.Lector["IdMarca"];
+                   aux.IdCategoria = (int)datos.Lector["IdCategoria"];
                     aux.Precio = (decimal)datos.Lector["Precio"];
 
                     lista.Add(aux);

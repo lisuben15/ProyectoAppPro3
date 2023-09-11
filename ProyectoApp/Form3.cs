@@ -1,4 +1,6 @@
-﻿using System;
+﻿using dominio;
+using negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,23 @@ namespace ProyectoApp
 {
     public partial class Form3Marcas : Form
     {
+        ServicioMarca servicioMarca;
         public Form3Marcas()
         {
             InitializeComponent();
+        }
+
+        private void Form3Marcas_Load(object sender, EventArgs e)
+        {
+            servicioMarca = new ServicioMarca();
+            List<Marca> lista = servicioMarca.ListarMarcas();
+
+            dataGridView1.DataSource = lista;
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
