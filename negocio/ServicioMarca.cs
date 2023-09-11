@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,8 +12,25 @@ namespace negocio
 {
     public class ServicioMarca
     {
-        public void AgregarMarca(Marca marca)
+        public static void AgregarMarca(Marca marca)//le agregamos static , sacar si falla!!!
         {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta("insert into MARCAS  VALUES ("+ marca.Id +",'"+marca.Descripcion+"')");
+                datos.ejecutarAccion();
+            }
+
+                
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
 
         }
         public void ModificarMarca(Marca marca)
