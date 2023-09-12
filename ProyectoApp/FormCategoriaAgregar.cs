@@ -12,29 +12,25 @@ using System.Windows.Forms;
 
 namespace ProyectoApp
 {
-    public partial class FormMarcaAgregar : Form
+    public partial class FormCategoriaAgregar : Form
     {
-        public FormMarcaAgregar()
+        public FormCategoriaAgregar()
         {
             InitializeComponent();
         }
 
-        private void FormMarcarAgregar_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            Marca obj = new Marca();
-            ServicioMarca servicioMarca = new ServicioMarca();
+            Categoria obj = new Categoria();
+            ServicioCategoria servicioCategoria = new ServicioCategoria();
             try
             {
-               
-                obj.Descripcion = txtElementoMarca.Text;
-                servicioMarca.AgregarMarca(obj);
+
+                obj.Descripcion = txtElementoCategoria.Text;
+                servicioCategoria.AgregarCategoria(obj);
                 MessageBox.Show("Registro Exitoso!");
                 this.Close();
+
             }
             catch (Exception ex)
             {
@@ -43,9 +39,9 @@ namespace ProyectoApp
             }
         }
 
-           
+        private void txtRegArticulo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
-
 }
-            
-

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 using dominio;
@@ -13,11 +14,43 @@ namespace negocio
     {
         public void AgregarCategoria(Categoria categoria)
         {
+            AccesoDatos datos = new AccesoDatos();
 
+            try
+            {
+                datos.setearConsulta("insert into CATEGORIAS  VALUES ('" + categoria.Descripcion + "')");
+                datos.ejecutarAccion();
+            }
+
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
         }
         public void ModificarCategoria(Categoria categoria)
         {
+            AccesoDatos datos = new AccesoDatos();
 
+            try
+            {
+                datos.setearConsulta("UPDATE CATEGORIAS SET Descripcion = ('" + categoria.Descripcion + "') WHERE Id = ('" + categoria.Id + "');");
+                datos.ejecutarAccion();
+            }
+
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
         }
         public void EliminarCategoria(Categoria categoria)
         {

@@ -39,10 +39,10 @@
             this.txtElemCodigo = new System.Windows.Forms.TextBox();
             this.txtElemNombre = new System.Windows.Forms.TextBox();
             this.txtElemDescripcion = new System.Windows.Forms.TextBox();
-            this.txtElemIdMarca = new System.Windows.Forms.TextBox();
-            this.txtElemIdCategoria = new System.Windows.Forms.TextBox();
             this.txtElemPrecio = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -164,26 +164,6 @@
             this.txtElemDescripcion.Size = new System.Drawing.Size(352, 20);
             this.txtElemDescripcion.TabIndex = 10;
             // 
-            // txtElemIdMarca
-            // 
-            this.txtElemIdMarca.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtElemIdMarca.Location = new System.Drawing.Point(361, 233);
-            this.txtElemIdMarca.Name = "txtElemIdMarca";
-            this.txtElemIdMarca.Size = new System.Drawing.Size(94, 20);
-            this.txtElemIdMarca.TabIndex = 11;
-            // 
-            // txtElemIdCategoria
-            // 
-            this.txtElemIdCategoria.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtElemIdCategoria.Location = new System.Drawing.Point(361, 262);
-            this.txtElemIdCategoria.Name = "txtElemIdCategoria";
-            this.txtElemIdCategoria.Size = new System.Drawing.Size(94, 20);
-            this.txtElemIdCategoria.TabIndex = 12;
-            // 
             // txtElemPrecio
             // 
             this.txtElemPrecio.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -208,15 +188,31 @@
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(361, 231);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 15;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(361, 258);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 21);
+            this.comboBox2.TabIndex = 16;
+            // 
             // FormProductoAgregar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(932, 516);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.txtElemPrecio);
-            this.Controls.Add(this.txtElemIdCategoria);
-            this.Controls.Add(this.txtElemIdMarca);
             this.Controls.Add(this.txtElemDescripcion);
             this.Controls.Add(this.txtElemNombre);
             this.Controls.Add(this.txtElemCodigo);
@@ -230,6 +226,7 @@
             this.Controls.Add(this.lblTitulo);
             this.Name = "FormProductoAgregar";
             this.Text = "FormProductoAgregar";
+            this.Load += new System.EventHandler(this.FormProductoAgregar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,9 +245,9 @@
         private System.Windows.Forms.TextBox txtElemCodigo;
         private System.Windows.Forms.TextBox txtElemNombre;
         private System.Windows.Forms.TextBox txtElemDescripcion;
-        private System.Windows.Forms.TextBox txtElemIdMarca;
-        private System.Windows.Forms.TextBox txtElemIdCategoria;
         private System.Windows.Forms.TextBox txtElemPrecio;
         private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox2;
     }
 }

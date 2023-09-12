@@ -32,6 +32,7 @@ namespace ProyectoApp
         {
            FormProductoAgregar formProductoAgregar = new FormProductoAgregar();
             formProductoAgregar.ShowDialog();
+            Form2Productos_Load(sender, e);
         }
     }
 }

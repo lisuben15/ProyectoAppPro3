@@ -34,6 +34,7 @@ namespace ProyectoApp
         {
             FormMarcaAgregar formMarcasAgregar = new FormMarcaAgregar();
             formMarcasAgregar.ShowDialog();
+            Form3Marcas_Load(sender, e);
         }
     }
 }

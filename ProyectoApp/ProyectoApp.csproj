@@ -70,6 +70,12 @@
     <Compile Include="Form4.Designer.cs">
       <DependentUpon>Form4.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormCategoriaAgregar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCategoriaAgregar.Designer.cs">
+      <DependentUpon>FormCategoriaAgregar.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormProductoAgregar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,12 +101,17 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form4.resx">
       <DependentUpon>Form4.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCategoriaAgregar.resx">
+      <DependentUpon>FormCategoriaAgregar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMarcaAgregar.resx">
       <DependentUpon>FormMarcaAgregar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormProductoAgregar.resx">
       <DependentUpon>FormProductoAgregar.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

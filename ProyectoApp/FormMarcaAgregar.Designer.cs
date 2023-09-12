@@ -38,10 +38,13 @@
             // txtRegArticulo
             // 
             this.txtRegArticulo.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.txtRegArticulo.Cursor = System.Windows.Forms.Cursors.No;
             this.txtRegArticulo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRegArticulo.ForeColor = System.Drawing.Color.White;
+            this.txtRegArticulo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.txtRegArticulo.Location = new System.Drawing.Point(12, 24);
             this.txtRegArticulo.Name = "txtRegArticulo";
+            this.txtRegArticulo.ReadOnly = true;
             this.txtRegArticulo.Size = new System.Drawing.Size(776, 63);
             this.txtRegArticulo.TabIndex = 0;
             this.txtRegArticulo.Text = "Agregar Marca";

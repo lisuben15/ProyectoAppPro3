@@ -19,6 +19,25 @@ namespace ProyectoApp
             InitializeComponent();
         }
 
+        private void FormProductoAgregar_Load(object sender, EventArgs e)
+        {
+            //Marca selectedMarca = comboBox1Marcas.SelectedItem;
+            ServicioMarca servicioMarca = new ServicioMarca();
+            List<Marca> listaMarcas = servicioMarca.ListarMarcas();
+
+            comboBox1.DataSource = listaMarcas;
+            comboBox1.DisplayMember = "Descripcion";
+            comboBox1.ValueMember = "Id";
+
+            //Categoria selectedCategoria = comboBox2.SelectedItem;
+            ServicioCategoria servicioCategoria = new ServicioCategoria();
+            List<Categoria> listaCategoria = servicioCategoria.ListarCategorias();
+
+            comboBox2.DataSource = listaCategoria;
+            comboBox2.DisplayMember = "Descripcion";
+            comboBox2.ValueMember = "Id";
+        }
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             Articulo obj = new Articulo();
@@ -29,17 +48,18 @@ namespace ProyectoApp
                 obj.Codigo = txtElemCodigo.Text;
                 obj.Nombre = txtElemNombre.Text;
                 obj.Descripcion = txtElemDescripcion.Text;
-                obj.IdMarca = int.Parse(txtElemIdMarca.Text);
-                obj.IdCategoria = int.Parse( txtElemIdCategoria.Text);
+                Marca marca = comboBox1.SelectedItem as Marca;
+                obj.IdMarca = marca.Id;
+                Categoria categoria = comboBox2.SelectedItem as Categoria;
+                obj.IdCategoria = categoria.Id;
                 obj.Precio = decimal.Parse(txtElemPrecio.Text);
 
                 servicioArticulo.AgregarArticulo(obj);
                 MessageBox.Show(" Operarcion exitosa ");
-
+                this.Close();
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }

@@ -30,6 +30,18 @@ namespace ProyectoApp
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            FormCategoriaAgregar formCategoriaAgregar = new FormCategoriaAgregar();
+            formCategoriaAgregar.ShowDialog();
+            Form4Categorias_Load(sender, e);
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
 
         }
     }

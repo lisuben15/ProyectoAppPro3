@@ -12,7 +12,7 @@ namespace negocio
 {
     public class ServicioArticulo 
     {
-        public void AgregarArticulo(Articulo articulo)
+            public void AgregarArticulo(Articulo articulo)
         {
             AccesoDatos datos = new AccesoDatos();
 
