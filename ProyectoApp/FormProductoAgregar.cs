@@ -14,28 +14,15 @@ namespace ProyectoApp
 {
     public partial class FormProductoAgregar : Form
     {
+        private Articulo articulo = null;
         public FormProductoAgregar()
         {
             InitializeComponent();
         }
-
-        private void FormProductoAgregar_Load(object sender, EventArgs e)
+        public FormProductoAgregar(Articulo articulo)
         {
-            //Marca selectedMarca = comboBox1Marcas.SelectedItem;
-            ServicioMarca servicioMarca = new ServicioMarca();
-            List<Marca> listaMarcas = servicioMarca.ListarMarcas();
-
-            comboBox1.DataSource = listaMarcas;
-            comboBox1.DisplayMember = "Descripcion";
-            comboBox1.ValueMember = "Id";
-
-            //Categoria selectedCategoria = comboBox2.SelectedItem;
-            ServicioCategoria servicioCategoria = new ServicioCategoria();
-            List<Categoria> listaCategoria = servicioCategoria.ListarCategorias();
-
-            comboBox2.DataSource = listaCategoria;
-            comboBox2.DisplayMember = "Descripcion";
-            comboBox2.ValueMember = "Id";
+            InitializeComponent();
+            this.articulo = articulo;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -44,23 +31,42 @@ namespace ProyectoApp
             ServicioArticulo servicioArticulo = new ServicioArticulo();
             try
             {
-
                 obj.Codigo = txtElemCodigo.Text;
                 obj.Nombre = txtElemNombre.Text;
                 obj.Descripcion = txtElemDescripcion.Text;
-                Marca marca = comboBox1.SelectedItem as Marca;
-                obj.IdMarca = marca.Id;
-                Categoria categoria = comboBox2.SelectedItem as Categoria;
-                obj.IdCategoria = categoria.Id;
+                obj.IdMarca = Convert.ToInt32(cboIdMarca.SelectedValue.ToString());
+                obj.IdCategoria = Convert.ToInt32(cboIdCategoria.SelectedValue.ToString());
                 obj.Precio = decimal.Parse(txtElemPrecio.Text);
-
+                
                 servicioArticulo.AgregarArticulo(obj);
                 MessageBox.Show(" Operarcion exitosa ");
-                this.Close();
+
             }
             catch (Exception ex)
             {
                 throw ex;
+            }
+        }
+
+        private void FormProductoAgregar_Load(object sender, EventArgs e)
+        {
+            ServicioCategoria servicioCategoria = new ServicioCategoria();
+            ServicioMarca servicioMarca = new ServicioMarca();
+             
+            try 
+            {
+                cboIdMarca.DisplayMember = "Descripcion"; // indica que campo de la identidad Marca se muestra
+                cboIdCategoria.DisplayMember = "Descripcion";
+                cboIdMarca.ValueMember = "Id";
+                cboIdCategoria.ValueMember = "Id";
+
+                cboIdMarca.DataSource = servicioMarca.ListarMarcas();
+                cboIdCategoria.DataSource = servicioCategoria.ListarCategorias();
+                
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
     }

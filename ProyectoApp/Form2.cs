@@ -15,6 +15,7 @@ namespace ProyectoApp
     public partial class Form2Productos : Form
     {
         ServicioArticulo servicioArticulo;
+        private List<Articulo> lista;
         public Form2Productos()
         {
             InitializeComponent();
@@ -23,9 +24,10 @@ namespace ProyectoApp
         private void Form2Productos_Load(object sender, EventArgs e)
         {
             servicioArticulo = new ServicioArticulo();
-            List<Articulo> lista = servicioArticulo.ListarArticulos();
+            lista = servicioArticulo.ListarArticulos();//esto lo llevo arriba como private
 
-            dataGridView1.DataSource = lista;
+            dgvProductos.DataSource = lista;
+            cargarImagen(lista[0].UrlImagen);
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -33,6 +35,46 @@ namespace ProyectoApp
            FormProductoAgregar formProductoAgregar = new FormProductoAgregar();
             formProductoAgregar.ShowDialog();
             Form2Productos_Load(sender, e);
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            ServicioArticulo servicioArticulo = new ServicioArticulo();
+            Articulo seleccionado;
+            try 
+            {
+              //seleccionado = (Articulo)dgvArticulo.curren
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado;
+            seleccionado = (Articulo)dgvProductos.CurrentRow.DataBoundItem;// <<-- con esto tenemos el articulo seleccionado
+            FormProductoAgregar formProductoModificar = new FormProductoAgregar(seleccionado);
+            formProductoModificar.ShowDialog();
+        }
+
+        private void dgvProductos_SelectionChanged(object sender, EventArgs e)
+        {
+            Articulo seleccionado = (Articulo)dgvProductos.CurrentRow.DataBoundItem;
+            cargarImagen(seleccionado.UrlImagen);
+        }
+
+        private void cargarImagen(string imagen)
+        {
+            try
+            {
+                pictureBoxImagenArt.Load(imagen);
+            }
+            catch (Exception ex)
+            {
+                pictureBoxImagenArt.Load("https://img.freepik.com/vector-premium/vector-icono-imagen-predeterminado-pagina-imagen-faltante-diseno-sitio-web-o-aplicacion-movil-no-hay-foto-disponible_87543-11093.jpg?size=626&ext=jpg&ga=GA1.1.567537646.1689895045&semt=ais");
+            }
         }
     }
 }

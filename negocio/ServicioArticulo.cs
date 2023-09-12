@@ -38,9 +38,9 @@ namespace negocio
         {
 
         }
-        public void EliminarArticulo(Articulo articulo)
+        public void EliminarArticulo(int Id)
         {
-
+           
         }
         public List<Articulo> ListarArticulos()
         {
@@ -48,19 +48,20 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("SELECT Id, Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio FROM ARTICULOS");
+                datos.setearConsulta("select A.Id, Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio, IMAGENES.ImagenUrl from ARTICULOS  A left join IMAGENES ON A.Id = IMAGENES.Id");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
                 {
-                    Articulo aux = new Articulo();
-                    aux.Id = (int)datos.Lector["Id"];
+                    Articulo aux = new Articulo();   
+                    aux.Id = (int)datos.Lector["Id"];  //  mapear
                     aux.Codigo = (string)datos.Lector["codigo"];
                     aux.Nombre = (string)datos.Lector["nombre"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
-                   aux.IdMarca = (int)datos.Lector["IdMarca"];
-                   aux.IdCategoria = (int)datos.Lector["IdCategoria"];
+                    aux.IdMarca = (int)datos.Lector["IdMarca"];
+                    aux.IdCategoria = (int)datos.Lector["IdCategoria"];
                     aux.Precio = (decimal)datos.Lector["Precio"];
+                    aux.UrlImagen = datos.Lector["ImagenUrl"] != DBNull.Value ? datos.Lector["ImagenUrl"].ToString() : null;
 
                     lista.Add(aux);
                 }
