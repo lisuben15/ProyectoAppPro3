@@ -1,5 +1,5 @@
-﻿
-using System;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -75,9 +75,53 @@ namespace negocio
             {
                 datos.cerrarConexion();
             }
-
-             
-           
         }
+
+        /*   public Articulo DevolverArticulo(int Id)
+        {
+            Articulo art = new Articulo();
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("select * from articulos where id =@Id");
+                datos.setearParametros("@Id", Id);
+                datos.ejecutarLectura();
+
+                datos.Lector.Read();
+                    Articulo aux = new Articulo();
+                    aux.Id = (int)datos.Lector["Id"];  //  mapear
+                    aux.Codigo = (string)datos.Lector["codigo"];
+                    aux.Nombre = (string)datos.Lector["nombre"];
+                    aux.Descripcion = (string)datos.Lector["Descripcion"];
+                    aux.IdMarca = (int)datos.Lector["IdMarca"];
+                    aux.IdCategoria = (int)datos.Lector["IdCategoria"];
+                    aux.Precio = (decimal)datos.Lector["Precio"];
+                    aux.UrlImagen = datos.Lector["ImagenUrl"] != DBNull.Value ? datos.Lector["ImagenUrl"].ToString() : null;
+
+                    return aux;               
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+        }*/
+
+
+        public Articulo ObtenerArticuloPorId(int Id)
+        {
+            List<Articulo> lista = ListarArticulos();
+            Articulo articuloEncontrado = lista.FirstOrDefault(a => a.Id == Id);
+
+            return articuloEncontrado;
+        }
+
+
     }  
 }

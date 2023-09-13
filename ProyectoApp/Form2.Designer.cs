@@ -31,7 +31,7 @@
             this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnVerProducto = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.pictureBoxImagenArt = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
@@ -76,17 +76,18 @@
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // btnBuscar
+            // btnVerProducto
             // 
-            this.btnBuscar.BackColor = System.Drawing.Color.Black;
-            this.btnBuscar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.Location = new System.Drawing.Point(643, 29);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(181, 38);
-            this.btnBuscar.TabIndex = 4;
-            this.btnBuscar.Text = "Ver Producto";
-            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnVerProducto.BackColor = System.Drawing.Color.Black;
+            this.btnVerProducto.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerProducto.ForeColor = System.Drawing.Color.White;
+            this.btnVerProducto.Location = new System.Drawing.Point(643, 29);
+            this.btnVerProducto.Name = "btnVerProducto";
+            this.btnVerProducto.Size = new System.Drawing.Size(181, 38);
+            this.btnVerProducto.TabIndex = 4;
+            this.btnVerProducto.Text = "Ver Producto";
+            this.btnVerProducto.UseVisualStyleBackColor = false;
+            this.btnVerProducto.Click += new System.EventHandler(this.btnVerProducto_Click);
             // 
             // btnModificar
             // 
@@ -116,7 +117,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(856, 501);
             this.Controls.Add(this.pictureBoxImagenArt);
-            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.btnVerProducto);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAgregar);
@@ -135,7 +136,7 @@
         private System.Windows.Forms.DataGridView dgvProductos;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button btnVerProducto;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.PictureBox pictureBoxImagenArt;
     }

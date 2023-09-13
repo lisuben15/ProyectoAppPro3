@@ -76,5 +76,12 @@ namespace ProyectoApp
                 pictureBoxImagenArt.Load("https://img.freepik.com/vector-premium/vector-icono-imagen-predeterminado-pagina-imagen-faltante-diseno-sitio-web-o-aplicacion-movil-no-hay-foto-disponible_87543-11093.jpg?size=626&ext=jpg&ga=GA1.1.567537646.1689895045&semt=ais");
             }
         }
+
+        private void btnVerProducto_Click(object sender, EventArgs e)
+        {
+            FormVerProducto formVerProducto = new FormVerProducto();
+            formVerProducto.ShowDialog();
+            
+        }
     }
 }
