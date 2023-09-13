@@ -34,8 +34,10 @@ namespace ProyectoApp
                 obj.Codigo = txtElemCodigo.Text;
                 obj.Nombre = txtElemNombre.Text;
                 obj.Descripcion = txtElemDescripcion.Text;
-                obj.IdMarca = Convert.ToInt32(cboIdMarca.SelectedValue.ToString());
-                obj.IdCategoria = Convert.ToInt32(cboIdCategoria.SelectedValue.ToString());
+                obj.Marca = new Marca();// se debe instanciar para que nazca el objeto
+                obj.Marca.Id = Convert.ToInt32(cboIdMarca.SelectedValue.ToString());
+                obj.Categoria = new Categoria();
+                obj.Categoria.Id = Convert.ToInt32(cboIdCategoria.SelectedValue.ToString());
                 obj.Precio = decimal.Parse(txtElemPrecio.Text);
                 
                 servicioArticulo.AgregarArticulo(obj);

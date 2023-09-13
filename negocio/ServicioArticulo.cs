@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -19,7 +20,7 @@ namespace negocio
             try
             {
                
-                datos.setearConsulta("insert into ARTICULOS values('"+articulo.Codigo+"', '"+articulo.Nombre+"', '"+ articulo.Descripcion+"',"+articulo.IdMarca+" ,"+articulo.IdCategoria+","+articulo.Precio+")");
+                datos.setearConsulta("insert into ARTICULOS values('"+articulo.Codigo+"', '"+articulo.Nombre+"', '"+ articulo.Descripcion+"',"+articulo.Marca.Id+" ,"+articulo.Categoria.Id+","+articulo.Precio+")");
                 datos.ejecutarAccion();
             }
 
@@ -42,28 +43,29 @@ namespace negocio
         {
            
         }
-        public List<DetalleArticulo> ListarArticulos()
+        public List<Articulo> ListarArticulos()
         {
-            List<DetalleArticulo> lista = new List<DetalleArticulo>();
+            List<Articulo> lista = new List<Articulo>();
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("SELECT Codigo, Nombre, a.Descripcion, m.Descripcion AS Marca, c.Descripcion AS Categoria, Precio , i.ImagenUrl " +
-                                     "FROM ARTICULOS a " +
-                                     "INNER JOIN MARCAS m ON  a.IdMarca = m.Id " +
-                                     "INNER JOIN CATEGORIAS c ON a.IdCategoria = c.Id " +
-                                     "LEFT JOIN IMAGENES i ON a.Id = i.IdArticulo");
+                datos.setearConsulta("SELECT a.Id, Codigo, Nombre, a.Descripcion, m.Id as IdMarca, m.Descripcion AS Marca, c.Id as IdCategoria, c.Descripcion AS Categoria, Precio, i.ImagenUrl FROM ARTICULOS a INNER JOIN MARCAS m ON  a.IdMarca = m.Id INNER JOIN CATEGORIAS c ON a.IdCategoria = c.Id LEFT JOIN IMAGENES i ON a.Id = i.IdArticulo");
                 datos.ejecutarLectura();
-
                 while (datos.Lector.Read())
                 {
-                    DetalleArticulo aux = new DetalleArticulo();   
-                    
+                    Articulo aux = new Articulo();
+                    aux.Id = (int)datos.Lector["Id"];
                     aux.Codigo = (string)datos.Lector["Codigo"];// mapaer
                     aux.Nombre = (string)datos.Lector["Nombre"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
-                    aux.DescripcionMarca = (string)datos.Lector["Marca"];
-                    aux.DescripcionCategoria = (string)datos.Lector["Categoria"];
+
+                    aux.Marca = new Marca();
+                    aux.Marca.Id = (int)datos.Lector["IdMarca"];
+                    aux.Marca.Descripcion = (string)datos.Lector["Marca"];
+
+                    aux.Categoria = new Categoria();
+                    aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
+                    aux.Categoria.Id = (int)datos.Lector["IdCategoria"];
                     aux.Precio = (decimal)datos.Lector["Precio"];
                     aux.UrlImagen = datos.Lector["ImagenUrl"] != DBNull.Value ? datos.Lector["ImagenUrl"].ToString() : null;
 
@@ -80,52 +82,6 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
-
-        /*   public Articulo DevolverArticulo(int Id)
-        {
-            Articulo art = new Articulo();
-            AccesoDatos datos = new AccesoDatos();
-            try
-            {
-                datos.setearConsulta("select * from articulos where id =@Id");
-                datos.setearParametros("@Id", Id);
-                datos.ejecutarLectura();
-
-                datos.Lector.Read();
-                    Articulo aux = new Articulo();
-                    aux.Id = (int)datos.Lector["Id"];  //  mapear
-                    aux.Codigo = (string)datos.Lector["codigo"];
-                    aux.Nombre = (string)datos.Lector["nombre"];
-                    aux.Descripcion = (string)datos.Lector["Descripcion"];
-                    aux.IdMarca = (int)datos.Lector["IdMarca"];
-                    aux.IdCategoria = (int)datos.Lector["IdCategoria"];
-                    aux.Precio = (decimal)datos.Lector["Precio"];
-                    aux.UrlImagen = datos.Lector["ImagenUrl"] != DBNull.Value ? datos.Lector["ImagenUrl"].ToString() : null;
-
-                    return aux;               
-
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-            finally
-            {
-                datos.cerrarConexion();
-            }
-
-        }*/
-
-
-        //public Articulo ObtenerArticuloPorId(int Id)
-        //{
-        //    List<DetalleArticulo> lista = ListarArticulos();
-        //    Articulo articuloEncontrado = lista.FirstOrDefault(a => a.Id == Id);
-
-        //    return articuloEncontrado;
-        //}
-
 
     }  
 }

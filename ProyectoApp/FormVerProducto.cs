@@ -18,16 +18,16 @@ namespace ProyectoApp
         {
             InitializeComponent();
         }
-        public FormVerProducto(DetalleArticulo detalleArticulo)
+        public FormVerProducto(Articulo articulo)
         {
             InitializeComponent();
-            this.lblCodigo.Text = detalleArticulo.Codigo;
-            this.lblNombre.Text = detalleArticulo.Nombre;
-            this.lblDescripcion.Text = detalleArticulo.Descripcion;
-            this.lblMarca.Text = detalleArticulo.DescripcionMarca;
-            this.lblCategoria.Text = detalleArticulo.DescripcionCategoria;
-            this.lblPrecio.Text =detalleArticulo.Precio.ToString();
-            cargarImagen(detalleArticulo.UrlImagen);
+            this.lblCodigo.Text = articulo.Codigo;
+            this.lblNombre.Text = articulo.Nombre;
+            this.lblDescripcion.Text = articulo.Descripcion;
+            this.lblMarca.Text = 
+            this.lblCategoria.Text = 
+            this.lblPrecio.Text =articulo.Precio.ToString();
+            cargarImagen(articulo.UrlImagen);
 
         }
 

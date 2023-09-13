@@ -15,7 +15,7 @@ namespace ProyectoApp
     public partial class Form2Productos : Form
     {
         ServicioArticulo servicioArticulo;
-        private List<DetalleArticulo> lista;
+        private List<Articulo> lista;
         public Form2Productos()
         {
             InitializeComponent();
@@ -27,6 +27,7 @@ namespace ProyectoApp
             lista = servicioArticulo.ListarArticulos();//esto lo llevo arriba como private
 
             dgvProductos.DataSource = lista;
+            dgvProductos.Columns["UrlImagen"].Visible = false;
             cargarImagen(lista[0].UrlImagen);
         }
 
@@ -61,7 +62,7 @@ namespace ProyectoApp
 
         private void dgvProductos_SelectionChanged(object sender, EventArgs e)
         {
-            DetalleArticulo seleccionado = (DetalleArticulo)dgvProductos.CurrentRow.DataBoundItem;
+            Articulo seleccionado = (Articulo)dgvProductos.CurrentRow.DataBoundItem;
             cargarImagen(seleccionado.UrlImagen);
         }
 
@@ -79,9 +80,9 @@ namespace ProyectoApp
 
         private void btnVerProducto_Click(object sender, EventArgs e)
         {
-            DetalleArticulo articuloSeleccionado = new DetalleArticulo();
+            Articulo articuloSeleccionado = new Articulo();
 
-            articuloSeleccionado = (DetalleArticulo)dgvProductos.CurrentRow.DataBoundItem;
+            articuloSeleccionado = (Articulo)dgvProductos.CurrentRow.DataBoundItem;
 
             FormVerProducto formVerProducto = new FormVerProducto(articuloSeleccionado);
             formVerProducto.ShowDialog();
