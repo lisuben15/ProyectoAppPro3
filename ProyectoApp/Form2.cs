@@ -15,13 +15,13 @@ namespace ProyectoApp
     public partial class Form2Productos : Form
     {
         ServicioArticulo servicioArticulo;
-        private List<Articulo> lista;
+        private List<DetalleArticulo> lista;
         public Form2Productos()
         {
             InitializeComponent();
         }
 
-        private void Form2Productos_Load(object sender, EventArgs e)
+        private void Form2Productos_Load(object sender, EventArgs e)   // <-- este Form lo uso para el obj de ver prod.
         {
             servicioArticulo = new ServicioArticulo();
             lista = servicioArticulo.ListarArticulos();//esto lo llevo arriba como private
@@ -53,15 +53,15 @@ namespace ProyectoApp
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            Articulo seleccionado;
-            seleccionado = (Articulo)dgvProductos.CurrentRow.DataBoundItem;// <<-- con esto tenemos el articulo seleccionado
-            FormProductoAgregar formProductoModificar = new FormProductoAgregar(seleccionado);
-            formProductoModificar.ShowDialog();
+            //Articulo seleccionado;
+            //seleccionado = (Articulo)dgvProductos.CurrentRow.DataBoundItem;// <<-- con esto tenemos el articulo seleccionado
+            //FormProductoAgregar formProductoModificar = new FormProductoAgregar(seleccionado);
+            //formProductoModificar.ShowDialog();
         }
 
         private void dgvProductos_SelectionChanged(object sender, EventArgs e)
         {
-            Articulo seleccionado = (Articulo)dgvProductos.CurrentRow.DataBoundItem;
+            DetalleArticulo seleccionado = (DetalleArticulo)dgvProductos.CurrentRow.DataBoundItem;
             cargarImagen(seleccionado.UrlImagen);
         }
 
@@ -79,7 +79,11 @@ namespace ProyectoApp
 
         private void btnVerProducto_Click(object sender, EventArgs e)
         {
-            FormVerProducto formVerProducto = new FormVerProducto();
+            DetalleArticulo articuloSeleccionado = new DetalleArticulo();
+
+            articuloSeleccionado = (DetalleArticulo)dgvProductos.CurrentRow.DataBoundItem;
+
+            FormVerProducto formVerProducto = new FormVerProducto(articuloSeleccionado);
             formVerProducto.ShowDialog();
             
         }

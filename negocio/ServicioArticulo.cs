@@ -42,24 +42,28 @@ namespace negocio
         {
            
         }
-        public List<Articulo> ListarArticulos()
+        public List<DetalleArticulo> ListarArticulos()
         {
-            List<Articulo> lista = new List<Articulo>();
+            List<DetalleArticulo> lista = new List<DetalleArticulo>();
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("select A.Id, Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio, IMAGENES.ImagenUrl from ARTICULOS  A left join IMAGENES ON A.Id = IMAGENES.Id");
+                datos.setearConsulta("SELECT Codigo, Nombre, a.Descripcion, m.Descripcion AS Marca, c.Descripcion AS Categoria, Precio , i.ImagenUrl " +
+                                     "FROM ARTICULOS a " +
+                                     "INNER JOIN MARCAS m ON  a.IdMarca = m.Id " +
+                                     "INNER JOIN CATEGORIAS c ON a.IdCategoria = c.Id " +
+                                     "LEFT JOIN IMAGENES i ON a.Id = i.IdArticulo");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
                 {
-                    Articulo aux = new Articulo();   
-                    aux.Id = (int)datos.Lector["Id"];  //  mapear
-                    aux.Codigo = (string)datos.Lector["codigo"];
-                    aux.Nombre = (string)datos.Lector["nombre"];
+                    DetalleArticulo aux = new DetalleArticulo();   
+                    
+                    aux.Codigo = (string)datos.Lector["Codigo"];// mapaer
+                    aux.Nombre = (string)datos.Lector["Nombre"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
-                    aux.IdMarca = (int)datos.Lector["IdMarca"];
-                    aux.IdCategoria = (int)datos.Lector["IdCategoria"];
+                    aux.DescripcionMarca = (string)datos.Lector["Marca"];
+                    aux.DescripcionCategoria = (string)datos.Lector["Categoria"];
                     aux.Precio = (decimal)datos.Lector["Precio"];
                     aux.UrlImagen = datos.Lector["ImagenUrl"] != DBNull.Value ? datos.Lector["ImagenUrl"].ToString() : null;
 
@@ -114,13 +118,13 @@ namespace negocio
         }*/
 
 
-        public Articulo ObtenerArticuloPorId(int Id)
-        {
-            List<Articulo> lista = ListarArticulos();
-            Articulo articuloEncontrado = lista.FirstOrDefault(a => a.Id == Id);
+        //public Articulo ObtenerArticuloPorId(int Id)
+        //{
+        //    List<DetalleArticulo> lista = ListarArticulos();
+        //    Articulo articuloEncontrado = lista.FirstOrDefault(a => a.Id == Id);
 
-            return articuloEncontrado;
-        }
+        //    return articuloEncontrado;
+        //}
 
 
     }  

@@ -18,22 +18,29 @@ namespace ProyectoApp
         {
             InitializeComponent();
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        public FormVerProducto(DetalleArticulo detalleArticulo)
         {
+            InitializeComponent();
+            this.lblCodigo.Text = detalleArticulo.Codigo;
+            this.lblNombre.Text = detalleArticulo.Nombre;
+            this.lblDescripcion.Text = detalleArticulo.Descripcion;
+            this.lblMarca.Text = detalleArticulo.DescripcionMarca;
+            this.lblCategoria.Text = detalleArticulo.DescripcionCategoria;
+            this.lblPrecio.Text =detalleArticulo.Precio.ToString();
+            cargarImagen(detalleArticulo.UrlImagen);
 
         }
 
-        private void  btnBuscarProducto_Click(object sender, EventArgs e)
+        private void cargarImagen(string imagen)
         {
-            Articulo art = new Articulo();
-            int Id = int.Parse(txtElemId.Text);
-            ServicioArticulo servicioArticulo = new ServicioArticulo();
-            art = servicioArticulo.ObtenerArticuloPorId(Id);
-            dgvVerProducto.DataSource = art;
-            
+            try
+            {
+                this.pbImagen.Load(imagen);
+            }
+            catch (Exception ex)
+            {
+                this.pbImagen.Load("https://img.freepik.com/vector-premium/vector-icono-imagen-predeterminado-pagina-imagen-faltante-diseno-sitio-web-o-aplicacion-movil-no-hay-foto-disponible_87543-11093.jpg?size=626&ext=jpg&ga=GA1.1.567537646.1689895045&semt=ais");
+            }
         }
-
-        
     }
 }
