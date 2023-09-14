@@ -80,5 +80,10 @@ namespace ProyectoApp
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

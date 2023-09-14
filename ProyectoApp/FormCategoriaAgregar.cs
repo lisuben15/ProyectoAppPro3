@@ -43,5 +43,10 @@ namespace ProyectoApp
         {
 
         }
+
+        private void txtElementoCategoria_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
