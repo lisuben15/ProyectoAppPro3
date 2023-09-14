@@ -50,6 +50,7 @@ namespace ProyectoApp
                     seleccionado = (Articulo)dgvProductos.CurrentRow.DataBoundItem;
                     servicioArticulo.EliminarArticulo(seleccionado.Id);
                     //Cargar();
+                    Form2Productos_Load(sender, e);
                 }
 
             }
@@ -95,6 +96,27 @@ namespace ProyectoApp
             FormVerProducto formVerProducto = new FormVerProducto(articuloSeleccionado);
             formVerProducto.ShowDialog();
             
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            List<Articulo> listaFiltrada;
+            string filtro = textBox1.Text;
+
+            servicioArticulo = new ServicioArticulo();
+            lista = servicioArticulo.ListarArticulos();
+
+            if (filtro != "")
+            {
+                listaFiltrada = lista.FindAll(x => x.Codigo.ToUpper().Contains(filtro.ToUpper()) || x.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.Descripcion.ToUpper().Contains(filtro.ToUpper()) || x.Marca.Descripcion.ToUpper().Contains(filtro.ToUpper()) || x.Categoria.Descripcion.ToUpper().Contains(filtro.ToUpper()));
+            }
+            else
+            {
+                listaFiltrada = lista;
+            }
+
+            dgvProductos.DataSource = null;
+            dgvProductos.DataSource = listaFiltrada;
         }
     }
 }

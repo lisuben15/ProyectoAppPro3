@@ -34,6 +34,8 @@
             this.btnVerProducto = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.pictureBoxImagenArt = new System.Windows.Forms.PictureBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImagenArt)).BeginInit();
             this.SuspendLayout();
@@ -111,11 +113,30 @@
             this.pictureBoxImagenArt.TabIndex = 5;
             this.pictureBoxImagenArt.TabStop = false;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(128, 6);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(169, 20);
+            this.textBox1.TabIndex = 6;
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(109, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Ingrese su búsqueda:";
+            // 
             // Form2Productos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(856, 501);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.pictureBoxImagenArt);
             this.Controls.Add(this.btnVerProducto);
             this.Controls.Add(this.btnEliminar);
@@ -128,6 +149,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImagenArt)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -139,5 +161,7 @@
         private System.Windows.Forms.Button btnVerProducto;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.PictureBox pictureBoxImagenArt;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
     }
 }

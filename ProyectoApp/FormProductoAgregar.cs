@@ -42,6 +42,7 @@ namespace ProyectoApp
                 
                 servicioArticulo.AgregarArticulo(obj);
                 MessageBox.Show(" Operarcion exitosa ");
+                this.Close();
 
             }
             catch (Exception ex)

@@ -52,8 +52,20 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
-        public void EliminarCategoria(Categoria categoria)
+        public void EliminarCategoria(int Id)
         {
+            try
+            {
+                AccesoDatos datos = new AccesoDatos();
+                datos.setearConsulta("delete from CATEGORIAS WHERE Id = @id");
+                datos.setearParametros("@id", Id);
+                datos.ejecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
 
         }
         public List<Categoria> ListarCategorias()
