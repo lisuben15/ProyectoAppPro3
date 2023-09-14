@@ -24,8 +24,8 @@ namespace ProyectoApp
             this.lblCodigo.Text = articulo.Codigo;
             this.lblNombre.Text = articulo.Nombre;
             this.lblDescripcion.Text = articulo.Descripcion;
-            this.lblMarca.Text = 
-            this.lblCategoria.Text = 
+            this.lblMarca.Text = articulo.Marca.Descripcion; 
+            this.lblCategoria.Text = articulo.Categoria.Descripcion; 
             this.lblPrecio.Text =articulo.Precio.ToString();
             cargarImagen(articulo.UrlImagen);
 
@@ -42,5 +42,7 @@ namespace ProyectoApp
                 this.pbImagen.Load("https://img.freepik.com/vector-premium/vector-icono-imagen-predeterminado-pagina-imagen-faltante-diseno-sitio-web-o-aplicacion-movil-no-hay-foto-disponible_87543-11093.jpg?size=626&ext=jpg&ga=GA1.1.567537646.1689895045&semt=ais");
             }
         }
+
+        
     }
 }
