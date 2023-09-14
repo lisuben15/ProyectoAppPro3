@@ -41,7 +41,19 @@ namespace negocio
         }
         public void EliminarArticulo(int Id)
         {
-           
+            try
+            {
+                AccesoDatos datos = new AccesoDatos();
+                datos.setearConsulta("delete from ARTICULOS WHERE Id = @id");
+                datos.setearParametros("@id", Id);
+                datos.ejecutarAccion();
+               
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
         public List<Articulo> ListarArticulos()
         {

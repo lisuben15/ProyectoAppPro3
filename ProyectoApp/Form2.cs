@@ -40,14 +40,22 @@ namespace ProyectoApp
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            ServicioArticulo servicioArticulo = new ServicioArticulo();
+            ServicioArticulo servicioArticulo=new ServicioArticulo();
             Articulo seleccionado;
-            try 
+            try
             {
-              //seleccionado = (Articulo)dgvArticulo.curren
+                DialogResult resultado = MessageBox.Show(" ¿Seguro desea eliminar ? ", " Eliminado", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (resultado == DialogResult.Yes)
+                {
+                    seleccionado = (Articulo)dgvProductos.CurrentRow.DataBoundItem;
+                    servicioArticulo.EliminarArticulo(seleccionado.Id);
+                    //Cargar();
+                }
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
+
                 MessageBox.Show(ex.ToString());
             }
         }
