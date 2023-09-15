@@ -23,27 +23,43 @@ namespace ProyectoApp
         {
             InitializeComponent();
             this.articulo = articulo;
+            Text = "Modificar Producto";
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            Articulo obj = new Articulo();
+            
             ServicioArticulo servicioArticulo = new ServicioArticulo();
             try
             {
-                obj.Codigo = txtElemCodigo.Text;
-                obj.Nombre = txtElemNombre.Text;
-                obj.Descripcion = txtElemDescripcion.Text;
-                obj.Marca = new Marca();// se debe instanciar para que nazca el objeto
-                obj.Marca.Id = Convert.ToInt32(cboIdMarca.SelectedValue.ToString());
-                obj.Categoria = new Categoria();
-                obj.Categoria.Id = Convert.ToInt32(cboIdCategoria.SelectedValue.ToString());
-                obj.Precio = decimal.Parse(txtElemPrecio.Text);
-                
-                servicioArticulo.AgregarArticulo(obj);
-                MessageBox.Show(" Operarcion exitosa ");
-                this.Close();
+                if(articulo == null)
+                articulo = new Articulo();
 
+                articulo.Codigo = txtElemCodigo.Text;
+                articulo.Nombre = txtElemNombre.Text;
+                articulo.Descripcion = txtElemDescripcion.Text;
+                articulo.Marca = new Marca();// se debe instanciar para que nazca el objeto
+                articulo.Marca.Id = Convert.ToInt32(cboIdMarca.SelectedValue.ToString());
+                articulo.Categoria = new Categoria();
+                articulo.Categoria.Id = Convert.ToInt32(cboIdCategoria.SelectedValue.ToString());
+                articulo.Precio = decimal.Parse(txtElemPrecio.Text);
+                
+                if(articulo.Id != 0)
+                {
+                servicioArticulo.ModificarArticulo(articulo);
+                MessageBox.Show(" Modificacion exitosa");
+                }
+                else
+                {
+                servicioArticulo.AgregarArticulo(articulo);
+                MessageBox.Show(" Operarcion exitosa ");
+                }
+
+
+
+
+
+                this.Close();
             }
             catch (Exception ex)
             {
@@ -55,7 +71,7 @@ namespace ProyectoApp
         {
             ServicioCategoria servicioCategoria = new ServicioCategoria();
             ServicioMarca servicioMarca = new ServicioMarca();
-             
+    
             try 
             {
                 cboIdMarca.DisplayMember = "Descripcion"; // indica que campo de la identidad Marca se muestra
@@ -65,6 +81,16 @@ namespace ProyectoApp
 
                 cboIdMarca.DataSource = servicioMarca.ListarMarcas();
                 cboIdCategoria.DataSource = servicioCategoria.ListarCategorias();
+
+                if(articulo != null)
+                {
+                    txtElemCodigo.Text = articulo.Codigo;
+                    txtElemNombre.Text = articulo.Nombre;
+                    txtElemDescripcion.Text = articulo.Descripcion;
+                    txtElemPrecio.Text = articulo.Precio.ToString();
+                    cboIdMarca.SelectedValue = articulo.Marca.Id;  
+                    cboIdCategoria.SelectedValue = articulo.Marca.Id;   
+                }
                 
             }
             catch (Exception ex) 
@@ -72,5 +98,7 @@ namespace ProyectoApp
                 MessageBox.Show(ex.ToString());
             }
         }
+
     }
+        
 }

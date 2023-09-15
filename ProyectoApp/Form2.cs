@@ -63,10 +63,13 @@ namespace ProyectoApp
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            //Articulo seleccionado;
-            //seleccionado = (Articulo)dgvProductos.CurrentRow.DataBoundItem;// <<-- con esto tenemos el articulo seleccionado
-            //FormProductoAgregar formProductoModificar = new FormProductoAgregar(seleccionado);
-            //formProductoModificar.ShowDialog();
+            Articulo seleccionado;
+            seleccionado = (Articulo)dgvProductos.CurrentRow.DataBoundItem;// <<-- con esto tenemos el articulo seleccionado
+            FormProductoAgregar formProductoModificar = new FormProductoAgregar(seleccionado);
+            formProductoModificar.ShowDialog();
+            Form2Productos_Load(sender, e);
+
+
         }
 
         private void dgvProductos_SelectionChanged(object sender, EventArgs e)
