@@ -106,14 +106,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(536, 291);
+            this.ClientSize = new System.Drawing.Size(536, 289);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.dataGridView1);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(552, 328);
+            this.MinimumSize = new System.Drawing.Size(552, 328);
             this.Name = "Form3Marcas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormMarcas";
             this.Load += new System.EventHandler(this.Form3Marcas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
