@@ -16,31 +16,28 @@ namespace negocio
     public class ServicioArticulo 
     {
             public void AgregarArticulo(Articulo articulo)
-        {
-            AccesoDatos datos = new AccesoDatos();
+            {
+                AccesoDatos datos = new AccesoDatos();
            
-            try
+                try
+                {
+                    datos.setearConsulta("insert into ARTICULOS values('"+articulo.Codigo+"', '"+articulo.Nombre+"', '"+ articulo.Descripcion+"',"+articulo.Marca.Id+" ,"+articulo.Categoria.Id+","+articulo.Precio+")");
+                    datos.ejecutarAccion();
+                }
+
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    datos.cerrarConexion();
+                }
+
+             }
+
+        public int seleccionoUltimoRegistro(Articulo articulo)
             {
-               
-                datos.setearConsulta("insert into ARTICULOS values('"+articulo.Codigo+"', '"+articulo.Nombre+"', '"+ articulo.Descripcion+"',"+articulo.Marca.Id+" ,"+articulo.Categoria.Id+","+articulo.Precio+")");
-                datos.ejecutarAccion();
-                
-            }
-
-
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                datos.cerrarConexion();
-            }
-
-        }
-
-        public Articulo seleccionoUltimoRegistro(Articulo articulo)
-        {
             AccesoDatos datos = new AccesoDatos();
 
             try
@@ -49,8 +46,7 @@ namespace negocio
                 datos.setearConsulta("select top(1) Id from ARTICULOS order by Id desc");
                 datos.ejecutarLectura();
                 datos.Lector.Read();
-                articulo.Id = (int)datos.Lector["Id"];
-                return articulo;
+                return (int)datos.Lector["Id"];
             }
 
 
@@ -64,13 +60,13 @@ namespace negocio
             }
         }
 
-        public void GuardarImagenRelacionada(Articulo articulo)
+        public void GuardarImagenRelacionada(int idArticulo, string urlImagen)
         {
             AccesoDatos datos = new AccesoDatos();
 
             try
             {           
-                datos.setearConsulta("insert into IMAGENES values(" + articulo.Id + ", '" + articulo.UrlImagen + "')");
+                datos.setearConsulta("insert into IMAGENES values(" + idArticulo + ", '" + urlImagen + "')");
                 datos.ejecutarAccion();
             }
 
@@ -166,6 +162,5 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
-
     }  
 }

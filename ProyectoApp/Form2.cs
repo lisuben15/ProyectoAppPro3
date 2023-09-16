@@ -19,11 +19,11 @@ namespace ProyectoApp
         public Form2Productos()
         {
             InitializeComponent();
+            servicioArticulo = new ServicioArticulo();
         }
 
         private void Form2Productos_Load(object sender, EventArgs e)   // <-- este Form lo uso para el obj de ver prod.
         {
-            servicioArticulo = new ServicioArticulo();
             lista = servicioArticulo.ListarArticulos();//esto lo llevo arriba como private
 
             dgvProductos.DataSource = lista;
@@ -40,7 +40,6 @@ namespace ProyectoApp
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            ServicioArticulo servicioArticulo=new ServicioArticulo();
             Articulo seleccionado;
             try
             {
@@ -103,9 +102,8 @@ namespace ProyectoApp
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             List<Articulo> listaFiltrada;
-            string filtro = textBox1.Text;
+            string filtro = txtBusqueda.Text;
 
-            servicioArticulo = new ServicioArticulo();
             lista = servicioArticulo.ListarArticulos();
 
             if (filtro != "")

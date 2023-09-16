@@ -55,9 +55,9 @@ namespace ProyectoApp
                 {
                  
                 servicioArticulo.AgregarArticulo(articulo);
-                 Articulo articulo1 = new Articulo();
-                 articulo1 = servicioArticulo.seleccionoUltimoRegistro(articulo);
-                servicioArticulo.GuardarImagenRelacionada(articulo1);
+                
+                int idArticulo = servicioArticulo.seleccionoUltimoRegistro(articulo);
+                servicioArticulo.GuardarImagenRelacionada(idArticulo, articulo.UrlImagen);
 
                 MessageBox.Show(" Operarcion exitosa ");
                 }
