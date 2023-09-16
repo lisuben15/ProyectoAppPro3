@@ -92,6 +92,7 @@
             this.MaximumSize = new System.Drawing.Size(652, 416);
             this.MinimumSize = new System.Drawing.Size(652, 416);
             this.Name = "FormCategoriaAgregar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar Categoria";
             this.ResumeLayout(false);
             this.PerformLayout();

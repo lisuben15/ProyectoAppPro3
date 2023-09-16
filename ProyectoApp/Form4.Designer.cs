@@ -106,14 +106,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(538, 289);
+            this.ClientSize = new System.Drawing.Size(536, 289);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAgregar);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(552, 328);
+            this.MinimumSize = new System.Drawing.Size(552, 328);
             this.Name = "Form4Categorias";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FromCategorias";
             this.Load += new System.EventHandler(this.Form4Categorias_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

@@ -89,6 +89,7 @@
             this.MaximumSize = new System.Drawing.Size(653, 418);
             this.MinimumSize = new System.Drawing.Size(653, 418);
             this.Name = "FormMarcaAgregar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormMarcaAgregar";
             this.Load += new System.EventHandler(this.FormMarcarAgregar_Load);
             this.ResumeLayout(false);

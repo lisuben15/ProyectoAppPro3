@@ -229,6 +229,7 @@
             this.MaximumSize = new System.Drawing.Size(659, 436);
             this.MinimumSize = new System.Drawing.Size(659, 436);
             this.Name = "FormProductoAgregar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormProductoAgregar";
             this.Load += new System.EventHandler(this.FormProductoAgregar_Load);
             this.ResumeLayout(false);
