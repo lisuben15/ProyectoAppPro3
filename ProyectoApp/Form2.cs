@@ -56,7 +56,6 @@ namespace ProyectoApp
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.ToString());
             }
         }

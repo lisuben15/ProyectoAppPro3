@@ -42,6 +42,8 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.cboIdMarca = new System.Windows.Forms.ComboBox();
             this.cboIdCategoria = new System.Windows.Forms.ComboBox();
+            this.lblImagen = new System.Windows.Forms.Label();
+            this.txtImagen = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -115,7 +117,7 @@
             // 
             this.lblPrecio.AutoSize = true;
             this.lblPrecio.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecio.Location = new System.Drawing.Point(194, 301);
+            this.lblPrecio.Location = new System.Drawing.Point(196, 303);
             this.lblPrecio.Name = "lblPrecio";
             this.lblPrecio.Size = new System.Drawing.Size(65, 18);
             this.lblPrecio.TabIndex = 7;
@@ -124,7 +126,7 @@
             // txtElemCodigo
             // 
             this.txtElemCodigo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtElemCodigo.Location = new System.Drawing.Point(284, 128);
+            this.txtElemCodigo.Location = new System.Drawing.Point(284, 131);
             this.txtElemCodigo.Name = "txtElemCodigo";
             this.txtElemCodigo.Size = new System.Drawing.Size(170, 20);
             this.txtElemCodigo.TabIndex = 8;
@@ -132,7 +134,7 @@
             // txtElemNombre
             // 
             this.txtElemNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtElemNombre.Location = new System.Drawing.Point(284, 165);
+            this.txtElemNombre.Location = new System.Drawing.Point(284, 168);
             this.txtElemNombre.Name = "txtElemNombre";
             this.txtElemNombre.Size = new System.Drawing.Size(170, 20);
             this.txtElemNombre.TabIndex = 9;
@@ -140,7 +142,7 @@
             // txtElemDescripcion
             // 
             this.txtElemDescripcion.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtElemDescripcion.Location = new System.Drawing.Point(284, 200);
+            this.txtElemDescripcion.Location = new System.Drawing.Point(284, 203);
             this.txtElemDescripcion.Name = "txtElemDescripcion";
             this.txtElemDescripcion.Size = new System.Drawing.Size(304, 20);
             this.txtElemDescripcion.TabIndex = 10;
@@ -148,7 +150,7 @@
             // txtElemPrecio
             // 
             this.txtElemPrecio.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtElemPrecio.Location = new System.Drawing.Point(284, 302);
+            this.txtElemPrecio.Location = new System.Drawing.Point(284, 305);
             this.txtElemPrecio.Name = "txtElemPrecio";
             this.txtElemPrecio.Size = new System.Drawing.Size(109, 20);
             this.txtElemPrecio.TabIndex = 13;
@@ -159,9 +161,9 @@
             this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnAgregar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
-            this.btnAgregar.Location = new System.Drawing.Point(284, 336);
+            this.btnAgregar.Location = new System.Drawing.Point(498, 323);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(103, 42);
+            this.btnAgregar.Size = new System.Drawing.Size(106, 42);
             this.btnAgregar.TabIndex = 14;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
@@ -185,12 +187,31 @@
             this.cboIdCategoria.Size = new System.Drawing.Size(121, 21);
             this.cboIdCategoria.TabIndex = 16;
             // 
+            // lblImagen
+            // 
+            this.lblImagen.AutoSize = true;
+            this.lblImagen.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblImagen.Location = new System.Drawing.Point(187, 340);
+            this.lblImagen.Name = "lblImagen";
+            this.lblImagen.Size = new System.Drawing.Size(72, 18);
+            this.lblImagen.TabIndex = 17;
+            this.lblImagen.Text = "Imagen:";
+            // 
+            // txtImagen
+            // 
+            this.txtImagen.Location = new System.Drawing.Point(284, 337);
+            this.txtImagen.Name = "txtImagen";
+            this.txtImagen.Size = new System.Drawing.Size(170, 20);
+            this.txtImagen.TabIndex = 18;
+            // 
             // FormProductoAgregar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(643, 390);
+            this.ClientSize = new System.Drawing.Size(643, 397);
+            this.Controls.Add(this.txtImagen);
+            this.Controls.Add(this.lblImagen);
             this.Controls.Add(this.cboIdCategoria);
             this.Controls.Add(this.cboIdMarca);
             this.Controls.Add(this.btnAgregar);
@@ -205,6 +226,8 @@
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblCodigo);
             this.Controls.Add(this.lblTitulo);
+            this.MaximumSize = new System.Drawing.Size(659, 436);
+            this.MinimumSize = new System.Drawing.Size(659, 436);
             this.Name = "FormProductoAgregar";
             this.Text = "FormProductoAgregar";
             this.Load += new System.EventHandler(this.FormProductoAgregar_Load);
@@ -229,5 +252,7 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.ComboBox cboIdMarca;
         private System.Windows.Forms.ComboBox cboIdCategoria;
+        private System.Windows.Forms.Label lblImagen;
+        private System.Windows.Forms.TextBox txtImagen;
     }
 }

@@ -143,6 +143,8 @@
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.dgvProductos);
+            this.MaximumSize = new System.Drawing.Size(872, 540);
+            this.MinimumSize = new System.Drawing.Size(872, 540);
             this.Name = "Form2Productos";
             this.Text = "FormProductos";
             this.Load += new System.EventHandler(this.Form2Productos_Load);

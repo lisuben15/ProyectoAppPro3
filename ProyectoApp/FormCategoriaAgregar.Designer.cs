@@ -89,6 +89,8 @@
             this.Controls.Add(this.txtElementoCategoria);
             this.Controls.Add(this.btnAgregar);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaximumSize = new System.Drawing.Size(652, 416);
+            this.MinimumSize = new System.Drawing.Size(652, 416);
             this.Name = "FormCategoriaAgregar";
             this.Text = "Agregar Categoria";
             this.ResumeLayout(false);

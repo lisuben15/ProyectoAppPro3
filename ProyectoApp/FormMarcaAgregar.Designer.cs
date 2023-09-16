@@ -41,7 +41,7 @@
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
             this.btnAgregar.Location = new System.Drawing.Point(228, 277);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(165, 53);
+            this.btnAgregar.Size = new System.Drawing.Size(167, 52);
             this.btnAgregar.TabIndex = 4;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
@@ -86,6 +86,8 @@
             this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.txtElementoMarca);
             this.Controls.Add(this.btnAgregar);
+            this.MaximumSize = new System.Drawing.Size(653, 418);
+            this.MinimumSize = new System.Drawing.Size(653, 418);
             this.Name = "FormMarcaAgregar";
             this.Text = "FormMarcaAgregar";
             this.Load += new System.EventHandler(this.FormMarcarAgregar_Load);

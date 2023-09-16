@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Reflection;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -16,12 +18,13 @@ namespace negocio
             public void AgregarArticulo(Articulo articulo)
         {
             AccesoDatos datos = new AccesoDatos();
-
+           
             try
             {
                
                 datos.setearConsulta("insert into ARTICULOS values('"+articulo.Codigo+"', '"+articulo.Nombre+"', '"+ articulo.Descripcion+"',"+articulo.Marca.Id+" ,"+articulo.Categoria.Id+","+articulo.Precio+")");
                 datos.ejecutarAccion();
+                
             }
 
 
@@ -34,6 +37,52 @@ namespace negocio
                 datos.cerrarConexion();
             }
 
+        }
+
+        public Articulo seleccionoUltimoRegistro(Articulo articulo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+
+                datos.setearConsulta("select top(1) Id from ARTICULOS order by Id desc");
+                datos.ejecutarLectura();
+                datos.Lector.Read();
+                articulo.Id = (int)datos.Lector["Id"];
+                return articulo;
+            }
+
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public void GuardarImagenRelacionada(Articulo articulo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {           
+                datos.setearConsulta("insert into IMAGENES values(" + articulo.Id + ", '" + articulo.UrlImagen + "')");
+                datos.ejecutarAccion();
+            }
+
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
         }
         public void ModificarArticulo(Articulo articulo)
         {

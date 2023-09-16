@@ -43,6 +43,8 @@ namespace ProyectoApp
                 articulo.Categoria = new Categoria();
                 articulo.Categoria.Id = Convert.ToInt32(cboIdCategoria.SelectedValue.ToString());
                 articulo.Precio = decimal.Parse(txtElemPrecio.Text);
+                articulo.UrlImagen = txtImagen.Text;
+             
                 
                 if(articulo.Id != 0)
                 {
@@ -51,7 +53,12 @@ namespace ProyectoApp
                 }
                 else
                 {
+                 
                 servicioArticulo.AgregarArticulo(articulo);
+                 Articulo articulo1 = new Articulo();
+                 articulo1 = servicioArticulo.seleccionoUltimoRegistro(articulo);
+                servicioArticulo.GuardarImagenRelacionada(articulo1);
+
                 MessageBox.Show(" Operarcion exitosa ");
                 }
 
