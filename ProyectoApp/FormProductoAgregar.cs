@@ -59,7 +59,7 @@ namespace ProyectoApp
                 int idArticulo = servicioArticulo.seleccionoUltimoRegistro(articulo);
                 servicioArticulo.GuardarImagenRelacionada(idArticulo, articulo.UrlImagen);
 
-                MessageBox.Show(" Operarcion exitosa ");
+                MessageBox.Show(" Operacion exitosa ");
                 }
 
 
@@ -106,6 +106,22 @@ namespace ProyectoApp
             }
         }
 
+        private void lblTitulo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void btnAgregar_MouseEnter(object sender, EventArgs e)
+        {
+            btnAgregar.Width += 5;
+            btnAgregar.Height += 5;
+        }
+        private void btnAgregar_MouseLeave(object sender, EventArgs e)
+        {
+            btnAgregar.Width -= 5;
+            btnAgregar.Height -= 5;
+        }
     }
         
 }

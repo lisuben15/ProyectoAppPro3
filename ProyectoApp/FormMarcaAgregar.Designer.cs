@@ -36,20 +36,22 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.BackColor = System.Drawing.SystemColors.ControlText;
+            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(67)))));
             this.btnAgregar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
-            this.btnAgregar.Location = new System.Drawing.Point(228, 277);
+            this.btnAgregar.Location = new System.Drawing.Point(242, 280);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(167, 52);
             this.btnAgregar.TabIndex = 4;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            this.btnAgregar.MouseEnter += new System.EventHandler(this.btnAgregar_MouseEnter);
+            this.btnAgregar.MouseLeave += new System.EventHandler(this.btnAgregar_MouseLeave);
             // 
             // txtElementoMarca
             // 
-            this.txtElementoMarca.Location = new System.Drawing.Point(271, 208);
+            this.txtElementoMarca.Location = new System.Drawing.Point(301, 176);
             this.txtElementoMarca.Name = "txtElementoMarca";
             this.txtElementoMarca.Size = new System.Drawing.Size(229, 20);
             this.txtElementoMarca.TabIndex = 6;
@@ -58,7 +60,7 @@
             // 
             this.lblDescripcion.AutoSize = true;
             this.lblDescripcion.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescripcion.Location = new System.Drawing.Point(120, 204);
+            this.lblDescripcion.Location = new System.Drawing.Point(150, 170);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(145, 24);
             this.lblDescripcion.TabIndex = 8;
@@ -67,14 +69,14 @@
             // lblAgregarMarca
             // 
             this.lblAgregarMarca.AutoSize = true;
-            this.lblAgregarMarca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.lblAgregarMarca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblAgregarMarca.Font = new System.Drawing.Font("Arial Rounded MT Bold", 36F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAgregarMarca.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblAgregarMarca.Location = new System.Drawing.Point(151, 41);
+            this.lblAgregarMarca.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblAgregarMarca.Location = new System.Drawing.Point(151, 32);
             this.lblAgregarMarca.Name = "lblAgregarMarca";
             this.lblAgregarMarca.Size = new System.Drawing.Size(379, 55);
             this.lblAgregarMarca.TabIndex = 9;
-            this.lblAgregarMarca.Text = "Agregár Marca";
+            this.lblAgregarMarca.Text = "Agregar Marca";
             // 
             // FormMarcaAgregar
             // 
@@ -86,6 +88,7 @@
             this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.txtElementoMarca);
             this.Controls.Add(this.btnAgregar);
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.MaximumSize = new System.Drawing.Size(653, 418);
             this.MinimumSize = new System.Drawing.Size(653, 418);
             this.Name = "FormMarcaAgregar";

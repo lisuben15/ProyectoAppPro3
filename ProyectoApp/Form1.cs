@@ -56,5 +56,45 @@ namespace ProyectoApp
             Form4Categorias form4Categorias = new Form4Categorias();
             form4Categorias.ShowDialog();
         }
+
+
+
+        //BUTTON ANIMATIONS
+        private void btnProductos_MouseEnter(object sender, EventArgs e)
+        {
+            btnProductos.Width = btnProductos.Width + 5;
+            btnProductos.Height = btnProductos.Height + 5;
+        }
+
+        private void btnProductos_MouseLeave(object sender, EventArgs e)
+        {
+            btnProductos.Width = btnProductos.Width - 5;
+            btnProductos.Height = btnProductos.Height - 5;
+        }
+
+        private void btnCategorias_MouseEnter(object sender, EventArgs e)
+        {
+            btnCategorias.Width = btnProductos.Width + 5;
+            btnCategorias.Height = btnProductos.Height + 5;
+        }
+
+        private void btnCategorias_MouseLeave(object sender, EventArgs e)
+        {
+            btnCategorias.Width = btnProductos.Width - 5;
+            btnCategorias.Height = btnProductos.Height - 5;
+        }
+
+        private void btnMarcas_MouseEnter(object sender, EventArgs e)
+        {
+            btnMarcas.Width = btnProductos.Width + 5;
+            btnMarcas.Height = btnProductos.Height + 5;
+        }
+
+        private void btnMarcas_MouseLeave(object sender, EventArgs e)
+        {
+            btnMarcas.Width = btnProductos.Width - 5;
+            btnMarcas.Height = btnProductos.Height - 5;
+        }
+
     }
 }

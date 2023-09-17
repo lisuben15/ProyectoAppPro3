@@ -82,5 +82,39 @@ namespace ProyectoApp
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = listaFiltrada;
         }
+
+
+
+        //BUTTON ANIMATIONS
+        private void btnModificar_MouseEnter(object sender, EventArgs e)
+        {
+            btnModificar.Width += 5;
+            btnModificar.Height += 5;
+        }
+        private void btnModificar_MouseLeave(object sender, EventArgs e)
+        {
+            btnModificar.Width -= 5;
+            btnModificar.Height -= 5;
+        }
+        private void btnAgregar_MouseEnter(object sender, EventArgs e)
+        {
+            btnAgregar.Width += 5;
+            btnAgregar.Height += 5;
+        }
+        private void btnAgregar_MouseLeave(object sender, EventArgs e)
+        {
+            btnAgregar.Width -= 5;
+            btnAgregar.Height -= 5;
+        }
+        private void btnEliminar_MouseEnter(object sender, EventArgs e)
+        {
+            btnEliminar.Width += 5;
+            btnEliminar.Height += 5;
+        }
+        private void btnEliminar_MouseLeave(object sender, EventArgs e)
+        {
+            btnEliminar.Width -= 5;
+            btnEliminar.Height -= 5;
+        }
     }
 }

@@ -44,7 +44,18 @@ namespace ProyectoApp
             }
         }
 
-           
+        private void btnAgregar_MouseEnter(object sender, EventArgs e)
+        {
+            btnAgregar.Width += 5;
+            btnAgregar.Height += 5;
+        }
+        private void btnAgregar_MouseLeave(object sender, EventArgs e)
+        {
+            btnAgregar.Width -= 5;
+            btnAgregar.Height -= 5;
+        }
+
+
     }
 
 }

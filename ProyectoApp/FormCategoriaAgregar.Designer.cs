@@ -38,7 +38,7 @@
             // 
             this.lblDescripcion.AutoSize = true;
             this.lblDescripcion.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescripcion.Location = new System.Drawing.Point(90, 206);
+            this.lblDescripcion.Location = new System.Drawing.Point(80, 168);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(145, 24);
             this.lblDescripcion.TabIndex = 13;
@@ -47,7 +47,7 @@
             // txtElementoCategoria
             // 
             this.txtElementoCategoria.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtElementoCategoria.Location = new System.Drawing.Point(251, 214);
+            this.txtElementoCategoria.Location = new System.Drawing.Point(240, 174);
             this.txtElementoCategoria.Name = "txtElementoCategoria";
             this.txtElementoCategoria.Size = new System.Drawing.Size(298, 20);
             this.txtElementoCategoria.TabIndex = 11;
@@ -55,7 +55,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.BackColor = System.Drawing.SystemColors.ControlText;
+            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnAgregar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
             this.btnAgregar.Location = new System.Drawing.Point(231, 277);
@@ -65,13 +65,15 @@
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            this.btnAgregar.MouseEnter += new System.EventHandler(this.btnAgregar_MouseEnter);
+            this.btnAgregar.MouseLeave += new System.EventHandler(this.btnAgregar_MouseLeave);
             // 
             // lblAgregarCat
             // 
             this.lblAgregarCat.AutoSize = true;
-            this.lblAgregarCat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.lblAgregarCat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblAgregarCat.Font = new System.Drawing.Font("Arial Rounded MT Bold", 36F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAgregarCat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblAgregarCat.ForeColor = System.Drawing.Color.Gainsboro;
             this.lblAgregarCat.Location = new System.Drawing.Point(85, 33);
             this.lblAgregarCat.Name = "lblAgregarCat";
             this.lblAgregarCat.Size = new System.Drawing.Size(464, 55);
