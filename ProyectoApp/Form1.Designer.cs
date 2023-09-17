@@ -45,7 +45,7 @@ namespace ProyectoApp
             this.lblGestionComercial.BackColor = System.Drawing.Color.DarkSlateGray;
             this.lblGestionComercial.Font = new System.Drawing.Font("Times New Roman", 72F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGestionComercial.ForeColor = System.Drawing.Color.LightGray;
-            this.lblGestionComercial.Location = new System.Drawing.Point(143, 69);
+            this.lblGestionComercial.Location = new System.Drawing.Point(251, 158);
             this.lblGestionComercial.Name = "lblGestionComercial";
             this.lblGestionComercial.Size = new System.Drawing.Size(811, 109);
             this.lblGestionComercial.TabIndex = 0;
@@ -63,9 +63,9 @@ namespace ProyectoApp
             this.btnProductos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnProductos.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProductos.ForeColor = System.Drawing.Color.Silver;
-            this.btnProductos.Location = new System.Drawing.Point(162, 276);
+            this.btnProductos.Location = new System.Drawing.Point(306, 377);
             this.btnProductos.Name = "btnProductos";
-            this.btnProductos.Size = new System.Drawing.Size(210, 90);
+            this.btnProductos.Size = new System.Drawing.Size(202, 90);
             this.btnProductos.TabIndex = 1;
             this.btnProductos.Text = "Productos";
             this.btnProductos.UseVisualStyleBackColor = false;
@@ -78,7 +78,7 @@ namespace ProyectoApp
             this.btnMarcas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnMarcas.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMarcas.ForeColor = System.Drawing.Color.Silver;
-            this.btnMarcas.Location = new System.Drawing.Point(446, 276);
+            this.btnMarcas.Location = new System.Drawing.Point(558, 377);
             this.btnMarcas.Name = "btnMarcas";
             this.btnMarcas.Size = new System.Drawing.Size(210, 90);
             this.btnMarcas.TabIndex = 2;
@@ -93,7 +93,7 @@ namespace ProyectoApp
             this.btnCategorias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnCategorias.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCategorias.ForeColor = System.Drawing.Color.Silver;
-            this.btnCategorias.Location = new System.Drawing.Point(728, 276);
+            this.btnCategorias.Location = new System.Drawing.Point(815, 377);
             this.btnCategorias.Name = "btnCategorias";
             this.btnCategorias.Size = new System.Drawing.Size(210, 90);
             this.btnCategorias.TabIndex = 3;
@@ -107,17 +107,21 @@ namespace ProyectoApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(1079, 429);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ClientSize = new System.Drawing.Size(1021, 505);
             this.Controls.Add(this.btnCategorias);
             this.Controls.Add(this.btnMarcas);
             this.Controls.Add(this.btnProductos);
             this.Controls.Add(this.lblGestionComercial);
+            this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.Color.DimGray;
             this.IsMdiContainer = true;
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(1028, 544);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Grupo10 App";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1ProyectoApp_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

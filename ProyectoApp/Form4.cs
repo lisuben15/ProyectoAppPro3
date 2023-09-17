@@ -25,7 +25,7 @@ namespace ProyectoApp
             servicioCategoria = new ServicioCategoria();
             List<Categoria> lista = servicioCategoria.ListarCategorias();
 
-            dataGridView1.DataSource = lista;
+            dgvCategorias.DataSource = lista;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -37,7 +37,10 @@ namespace ProyectoApp
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-
+            Categoria seleccionado = (Categoria)dgvCategorias.CurrentRow.DataBoundItem;
+            FormCategoriaAgregar formCategoriaModificar = new FormCategoriaAgregar(seleccionado);
+            formCategoriaModificar.ShowDialog();
+            Form4Categorias_Load(sender, e);                             
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -49,7 +52,7 @@ namespace ProyectoApp
                 DialogResult resultado = MessageBox.Show(" ¿Seguro desea eliminar ? ", " Eliminado", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (resultado == DialogResult.Yes)
                 {
-                    seleccionado = (Categoria)dataGridView1.CurrentRow.DataBoundItem;
+                    seleccionado = (Categoria)dgvCategorias.CurrentRow.DataBoundItem;
                     servicioCategoria.EliminarCategoria(seleccionado.Id);
                     Form4Categorias_Load(sender, e);
                 }
@@ -79,8 +82,8 @@ namespace ProyectoApp
                 listaFiltrada = lista;
             }
 
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = listaFiltrada;
+            dgvCategorias.DataSource = null;
+            dgvCategorias.DataSource = listaFiltrada;
         }
 
 

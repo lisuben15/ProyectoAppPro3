@@ -14,15 +14,34 @@ namespace ProyectoApp
 {
     public partial class FormMarcaAgregar : Form
     {
-        
+        Marca marca = null;
         public FormMarcaAgregar()
         {
             InitializeComponent();
         }
+        public FormMarcaAgregar(Marca marca)
+        {
+             InitializeComponent();
+            this.marca = marca;
+            Text = "Modificar Marca";
+
+        }
 
         private void FormMarcarAgregar_Load(object sender, EventArgs e)
         {
-            
+            try
+            {
+                if(marca != null)
+                {
+                    txtElementoMarca.Text = marca.Descripcion; 
+                }
+                    
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -31,11 +50,23 @@ namespace ProyectoApp
             ServicioMarca servicioMarca = new ServicioMarca();
             try
             {
-               
-                obj.Descripcion = txtElementoMarca.Text;
-                servicioMarca.AgregarMarca(obj);
-                MessageBox.Show("Registro Exitoso!");
+               if(marca == null)
+                {
+                    obj.Descripcion = txtElementoMarca.Text;
+                    servicioMarca.AgregarMarca(obj);
+                    MessageBox.Show("Registro Exitoso!");
+                    
+                }
+                else
+                {
+                   
+                    marca.Descripcion= txtElementoMarca.Text;
+                    servicioMarca.ModificarMarca(marca);
+                    MessageBox.Show(" Modificacion exitosa");
+
+                }
                 this.Close();
+
             }
             catch (Exception ex)
             {

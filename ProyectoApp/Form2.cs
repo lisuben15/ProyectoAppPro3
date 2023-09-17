@@ -30,6 +30,19 @@ namespace ProyectoApp
             dgvProductos.DataSource = lista;
             dgvProductos.Columns["UrlImagen"].Visible = false;
             cargarImagen(lista[0].UrlImagen);
+
+            comboBox2.Enabled = false;
+            textBox1.Enabled = false;
+
+            comboBox1.Items.Add("Codigo");
+            comboBox1.Items.Add("Nombre");
+            comboBox1.Items.Add("Descripcion");
+            comboBox1.Items.Add("Precio");
+            comboBox1.Items.Add("UrlImagen");
+            comboBox1.Items.Add("Marca");
+            comboBox1.Items.Add("Categoria");
+
+
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -98,19 +111,8 @@ namespace ProyectoApp
             FormVerProducto formVerProducto = new FormVerProducto(articuloSeleccionado);
             formVerProducto.ShowDialog();
             
-        }
-
-        private void comboBox1_DropDown(object sender, EventArgs e)
-        {
-            comboBox1.Items.Add("Codigo");
-            comboBox1.Items.Add("Nombre");
-            comboBox1.Items.Add("Descripcion");
-            comboBox1.Items.Add("Precio");
-            comboBox1.Items.Add("UrlImagen");
-            comboBox1.Items.Add("Marca");
-            comboBox1.Items.Add("Categoria");
-        }
-
+        }           
+        
         private void comboBox2_DropDown(object sender, EventArgs e)
         {
             string opcion = "";
@@ -157,61 +159,60 @@ namespace ProyectoApp
             List<Articulo> listaFiltrada;
 
             string filtro = textBox1.Text;
-            string campo = "";
-            try { campo = comboBox1.SelectedItem.ToString(); }
-            catch (NullReferenceException ex) { MessageBox.Show("Por favor, seleccione el campo de búsqueda"); }
             
-            string criterio = comboBox2.SelectedItem.ToString();
-
-            string consulta = "SELECT a.Id, Codigo, Nombre, a.Descripcion, m.Id as IdMarca, m.Descripcion AS Marca, c.Id as IdCategoria, c.Descripcion AS Categoria, Precio, i.ImagenUrl FROM ARTICULOS a INNER JOIN MARCAS m ON  a.IdMarca = m.Id INNER JOIN CATEGORIAS c ON a.IdCategoria = c.Id LEFT JOIN IMAGENES i ON a.Id = i.IdArticulo WHERE  ";
-            if (campo == "Precio")
+            if (comboBox1.SelectedIndex != -1 && comboBox2.SelectedIndex != -1 )
             {
-                switch (criterio)
+                string criterio = comboBox2.SelectedItem.ToString();
+                string campo = comboBox1.SelectedItem.ToString();
+                string consulta = "SELECT a.Id, Codigo, Nombre, a.Descripcion, m.Id as IdMarca, m.Descripcion AS Marca, c.Id as IdCategoria, c.Descripcion AS Categoria, Precio, i.ImagenUrl FROM ARTICULOS a INNER JOIN MARCAS m ON  a.IdMarca = m.Id INNER JOIN CATEGORIAS c ON a.IdCategoria = c.Id LEFT JOIN IMAGENES i ON a.Id = i.IdArticulo WHERE  ";
+                if (campo == "Precio")
                 {
-                    case "Mayor a":
-                        consulta += "a.\"Precio\" > " + filtro;
-                        break;
-                    case "Menor a":
-                        consulta += "a.\"Precio\" < " + filtro;
-                        break;
-                    default:
-                        consulta += "a.\"Precio\" = " + filtro;
-                        break;
+                    switch (criterio)
+                    {
+                        case "Mayor a":
+                            consulta += "a.\"Precio\" > " + filtro;
+                            break;
+                        case "Menor a":
+                            consulta += "a.\"Precio\" < " + filtro;
+                            break;
+                        default:
+                            consulta += "a.\"Precio\" = " + filtro;
+                            break;
+                    }
                 }
-            }
-            else if (campo == "Codigo" || campo == "Nombre" || campo == "Descripcion" || campo == "Marca" || campo == "Categoria")
-            {
-                if (campo == "Marca") { campo = "Descripcion"; consulta += "m."; }
-                else if (campo == "Categoria") { campo = "Descripcion"; consulta += "c."; }
-                else { consulta += "a."; }
-                switch (criterio)
+                else if (campo == "Codigo" || campo == "Nombre" || campo == "Descripcion" || campo == "Marca" || campo == "Categoria")
                 {
-                    case "Comienza con":
-                        consulta += "\"" + campo + "\" like '" + filtro + "%' ";
-                        break;
-                    case "Termina con":
-                        consulta += "\"" + campo + "\" like '%" + filtro + "'";
-                        break;
-                    default:
-                        consulta += "\"" + campo + "\" like '%" + filtro + "%'";
-                        break;
+                    if (campo == "Marca") { campo = "Descripcion"; consulta += "m."; }
+                    else if (campo == "Categoria") { campo = "Descripcion"; consulta += "c."; }
+                    else { consulta += "a."; }
+                    switch (criterio)
+                    {
+                        case "Comienza con":
+                            consulta += "\"" + campo + "\" like '" + filtro + "%' ";
+                            break;
+                        case "Termina con":
+                            consulta += "\"" + campo + "\" like '%" + filtro + "'";
+                            break;
+                        default:
+                            consulta += "\"" + campo + "\" like '%" + filtro + "%'";
+                            break;
+                    }
                 }
-            }
 
-            if (filtro != "")
-            {
-                listaFiltrada = servicioArticulo.FiltrarArticulos(consulta);
-            }
-            else
-            {
-                listaFiltrada = servicioArticulo.ListarArticulos();
-            }
+                if (filtro != "")
+                {
+                    listaFiltrada = servicioArticulo.FiltrarArticulos(consulta);
+                }
+                else
+                {
+                    listaFiltrada = servicioArticulo.ListarArticulos();
+                }
 
-            dgvProductos.DataSource = null;
-            dgvProductos.DataSource = listaFiltrada;
-            dgvProductos.Columns["UrlImagen"].Visible = false;
-            cargarImagen(lista[0].UrlImagen);
-
+                dgvProductos.DataSource = null;
+                dgvProductos.DataSource = listaFiltrada;
+                dgvProductos.Columns["UrlImagen"].Visible = false;
+                cargarImagen(lista[0].UrlImagen);
+            }                               
         }
 
 
@@ -265,6 +266,15 @@ namespace ProyectoApp
         {
             btnBuscar.Width -= 1;
             btnBuscar.Height -= 1;
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedIndex != -1)
+            {
+                comboBox2.Enabled = true;
+                textBox1.Enabled = true;
+            }
         }
     }
 }

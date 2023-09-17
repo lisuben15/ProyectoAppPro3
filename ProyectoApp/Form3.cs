@@ -116,5 +116,13 @@ namespace ProyectoApp
             btnEliminar.Width -= 5;
             btnEliminar.Height -= 5;
         }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Marca seleccionado = (Marca)dataGridView1.CurrentRow.DataBoundItem;
+            FormMarcaAgregar formMarcasModificar = new FormMarcaAgregar(seleccionado);
+            formMarcasModificar.ShowDialog();
+            Form3Marcas_Load(sender, e);
+        }
     }
 }
