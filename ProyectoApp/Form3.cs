@@ -62,9 +62,13 @@ namespace ProyectoApp
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             ServicioMarca servicioMarca = new ServicioMarca();
+            ServicioArticulo servicioArticulo = new ServicioArticulo();
             Marca seleccionado;
+           
+
             try
             {
+              
                 DialogResult resultado = MessageBox.Show(" ¿Seguro desea eliminar ? ", " Eliminado", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (resultado == DialogResult.Yes)
                 {

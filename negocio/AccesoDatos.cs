@@ -11,7 +11,7 @@ namespace negocio
     public class AccesoDatos
     {
         private SqlConnection conexion;
-        private SqlCommand comando;
+        public SqlCommand comando;
         private SqlDataReader lector;
         public SqlDataReader Lector
         {
@@ -21,8 +21,8 @@ namespace negocio
         public AccesoDatos()
         {
             //conexion = new SqlConnection("server=localhost; database=CATALOGO_P3_DB; integrated security=false; user=sa; password=123456");
-            //conexion = new SqlConnection("server=DESKTOP-2360JBV\\SQLEXPRESS1; database=CATALOGO_P3_DB; integrated security=true");
-            conexion = new SqlConnection("server=.\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true");
+            conexion = new SqlConnection("server=DESKTOP-2360JBV\\SQLEXPRESS1; database=CATALOGO_P3_DB; integrated security=true");
+           //conexion = new SqlConnection("server=.\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true");
             comando = new SqlCommand();
         }
 

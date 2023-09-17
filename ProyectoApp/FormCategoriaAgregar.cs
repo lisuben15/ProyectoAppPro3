@@ -32,14 +32,33 @@ namespace ProyectoApp
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             Categoria obj = new Categoria();
+            List<Categoria> listaC = new List<Categoria>();
             ServicioCategoria servicioCategoria = new ServicioCategoria();
             try
             {
+
+                listaC = servicioCategoria.ListarCategorias();
+                if (txtElementoCategoria.Text == "")
+                {
+                    MessageBox.Show("Agregar una Categoria por favor!!");
+                    return;
+                }
+
+
                 if (categoria == null)
                 {
                     obj.Descripcion = txtElementoCategoria.Text;
-                    servicioCategoria.AgregarCategoria(obj);
-                    MessageBox.Show("Registro Exitoso!");
+                    if (!listaC.Any(m => m.Descripcion.Equals(obj.Descripcion, StringComparison.OrdinalIgnoreCase)))
+                    {
+                        servicioCategoria.AgregarCategoria(obj);
+                        MessageBox.Show("Registro Exitoso!");
+
+                        Close();
+                    }
+                    else {
+                        MessageBox.Show("Esa Categoria ya existe");
+                    }
+
                 }
                 else
                 {
