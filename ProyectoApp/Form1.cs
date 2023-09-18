@@ -96,5 +96,14 @@ namespace ProyectoApp
             btnMarcas.Height = btnProductos.Height - 5;
         }
 
+        private void toolStripButtonPeople_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Integrantes del proyecto: Gastón Garcia, Gabriel Bejarano y Ariel Rodriguez.");
+        }
+
+        private void toolStripButtonPc_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Materia: Programación 3.");
+        }
     }
 }

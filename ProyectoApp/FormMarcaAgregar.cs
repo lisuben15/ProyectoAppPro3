@@ -1,6 +1,7 @@
 ﻿using dominio;
 using negocio;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -47,14 +48,28 @@ namespace ProyectoApp
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             Marca obj = new Marca();
+            List<Marca> listaM = new List<Marca>();
             ServicioMarca servicioMarca = new ServicioMarca();
             try
             {
+                listaM = servicioMarca.ListarMarcas();
+                if(txtElementoMarca.Text == "")
+                {
+                    MessageBox.Show("Agregar una marca por favor!!");
+                    return;
+                }
+
                if(marca == null)
                 {
                     obj.Descripcion = txtElementoMarca.Text;
+                    if (!listaM.Any(m => m.Descripcion.Equals(obj.Descripcion, StringComparison.OrdinalIgnoreCase)))
+                    {
                     servicioMarca.AgregarMarca(obj);
                     MessageBox.Show("Registro Exitoso!");
+                        
+                        Close();
+                    }
+                    else { MessageBox.Show("Esa marca ya existe"); }
                     
                 }
                 else

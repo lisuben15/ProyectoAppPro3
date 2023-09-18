@@ -143,6 +143,7 @@
             this.txtElemNombre.Name = "txtElemNombre";
             this.txtElemNombre.Size = new System.Drawing.Size(170, 20);
             this.txtElemNombre.TabIndex = 9;
+            this.txtElemNombre.TextChanged += new System.EventHandler(this.txtElemNombre_TextChanged);
             // 
             // txtElemDescripcion
             // 
