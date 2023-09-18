@@ -168,6 +168,15 @@ namespace ProyectoApp
                 string consulta = "SELECT a.Id, Codigo, Nombre, a.Descripcion, m.Id as IdMarca, m.Descripcion AS Marca, c.Id as IdCategoria, c.Descripcion AS Categoria, Precio, i.ImagenUrl FROM ARTICULOS a INNER JOIN MARCAS m ON  a.IdMarca = m.Id INNER JOIN CATEGORIAS c ON a.IdCategoria = c.Id LEFT JOIN IMAGENES i ON a.Id = i.IdArticulo WHERE  ";
                 if (campo == "Precio")
                 {
+                    decimal verificadorNumero;
+
+                    if (!(decimal.TryParse((textBox1.Text), out verificadorNumero)))
+                    {
+                        MessageBox.Show("Ingresar sólo números en el precio por favor");
+                        return;
+                    }
+
+
                     switch (criterio)
                     {
                         case "Mayor a":
@@ -213,7 +222,8 @@ namespace ProyectoApp
                 dgvProductos.DataSource = listaFiltrada;
                 dgvProductos.Columns["UrlImagen"].Visible = false;
                 cargarImagen(lista[0].UrlImagen);
-            }                               
+            }
+            
         }
 
 

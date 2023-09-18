@@ -34,7 +34,34 @@ namespace ProyectoApp
             ServicioArticulo servicioArticulo = new ServicioArticulo();
             try
             {
-                if(articulo == null)
+                decimal verificadorNumero;
+
+                if (!(decimal.TryParse((txtElemPrecio.Text), out verificadorNumero)))
+                {
+                    MessageBox.Show("Precio no válido!");
+                    return;
+                }
+                if (servicioArticulo.BUscarCodigoDuplicado(txtElemCodigo.Text) == true)
+                {
+                    MessageBox.Show("El codigo ya existe. Ingrese otro");
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(txtElemCodigo.Text))
+                {
+                    MessageBox.Show("Ingrese un código por favor!");
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(txtElemNombre.Text))
+                {
+                    MessageBox.Show("Ingrese un nombre por favor!");
+                    return;
+                }
+
+                
+
+                if (articulo == null)
                 articulo = new Articulo();
 
                 articulo.Codigo = txtElemCodigo.Text;
