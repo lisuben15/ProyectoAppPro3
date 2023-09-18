@@ -34,6 +34,7 @@ namespace ProyectoApp
             comboBox2.Enabled = false;
             textBox1.Enabled = false;
 
+            comboBox1.Items.Clear();
             comboBox1.Items.Add("Codigo");
             comboBox1.Items.Add("Nombre");
             comboBox1.Items.Add("Descripcion");
@@ -275,6 +276,11 @@ namespace ProyectoApp
                 comboBox2.Enabled = true;
                 textBox1.Enabled = true;
             }
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -42,6 +42,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,7 +110,7 @@
             // 
             // pbImagen
             // 
-            this.pbImagen.Location = new System.Drawing.Point(365, 82);
+            this.pbImagen.Location = new System.Drawing.Point(372, 72);
             this.pbImagen.Name = "pbImagen";
             this.pbImagen.Size = new System.Drawing.Size(407, 335);
             this.pbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -187,12 +189,36 @@
             this.label6.TabIndex = 12;
             this.label6.Text = "Precio:";
             // 
+            // button1
+            // 
+            this.button1.Enabled = false;
+            this.button1.Location = new System.Drawing.Point(372, 413);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(71, 19);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "<-";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Enabled = false;
+            this.button2.Location = new System.Drawing.Point(708, 413);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(71, 19);
+            this.button2.TabIndex = 14;
+            this.button2.Text = "->";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // FormVerProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(784, 429);
+            this.ClientSize = new System.Drawing.Size(791, 441);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -207,7 +233,7 @@
             this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblCodigo);
-            this.MaximumSize = new System.Drawing.Size(1094, 468);
+            this.MaximumSize = new System.Drawing.Size(1094, 700);
             this.MinimumSize = new System.Drawing.Size(690, 441);
             this.Name = "FormVerProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -233,5 +259,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

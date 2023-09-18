@@ -14,6 +14,8 @@ namespace ProyectoApp
 {
     public partial class FormVerProducto : Form
     {
+        List<string> UrlsImagenes = new List<string>();
+        int index = 0;
         public FormVerProducto()
         {
             InitializeComponent();
@@ -27,8 +29,10 @@ namespace ProyectoApp
             this.lblMarca.Text = articulo.Marca.Descripcion; 
             this.lblCategoria.Text = articulo.Categoria.Descripcion; 
             this.lblPrecio.Text =articulo.Precio.ToString();
+            ServicioArticulo servicioArticulo = new ServicioArticulo();
+            UrlsImagenes = servicioArticulo.ListarImagenes(articulo.Id);
             cargarImagen(articulo.UrlImagen);
-
+            if (UrlsImagenes.Count > 0) { button1.Enabled = true; button2.Enabled = true; }
         }
 
         private void cargarImagen(string imagen)
@@ -43,6 +47,16 @@ namespace ProyectoApp
             }
         }
 
-        
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (index == 0) { index = UrlsImagenes.Count-1; cargarImagen(UrlsImagenes[index]); }
+            else { index--; cargarImagen(UrlsImagenes[index]); }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (index == UrlsImagenes.Count-1) { index = 0; cargarImagen(UrlsImagenes[index]); }
+            else { index++; cargarImagen(UrlsImagenes[index]); }
+        }
     }
 }

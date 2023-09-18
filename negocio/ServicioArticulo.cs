@@ -115,7 +115,8 @@ namespace negocio
                 datos.setearConsulta("delete from ARTICULOS WHERE Id = @id");
                 datos.setearParametros("@id", Id);
                 datos.ejecutarAccion();
-               
+                datos.cerrarConexion();
+                EliminarImagenes(Id);
             }
             catch (Exception ex)
             {
@@ -123,6 +124,15 @@ namespace negocio
             }
 
         }
+
+        public void EliminarImagenes(int Id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            datos.setearConsulta("delete from IMAGENES WHERE IdArticulo = @id");
+            datos.setearParametros("@id", Id);
+            datos.ejecutarAccion();
+        }
+
         public List<Articulo> ListarArticulos()
         {
             List<Articulo> lista = new List<Articulo>();
@@ -203,5 +213,49 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
-    }  
+
+        public List<string> ListarImagenes(int Id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            List<string> lista = new List<string>();
+            try
+            {
+                datos.setearConsulta("SELECT ImagenUrl FROM IMAGENES WHERE IdArticulo = @id");
+                datos.setearParametros("@id", Id);
+                datos.ejecutarLectura();
+                string aux;
+                while (datos.Lector.Read())
+                {
+                    aux = (string)datos.Lector["ImagenUrl"];
+                    lista.Add(aux);
+                }
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public void AgregarImagenes(int Id, List<string> UrlsImagenes)
+        {
+            try
+            {
+                for (int i = 0; i < UrlsImagenes.Count; i++)
+                {
+                    GuardarImagenRelacionada(Id, UrlsImagenes[i]);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+    }
 }

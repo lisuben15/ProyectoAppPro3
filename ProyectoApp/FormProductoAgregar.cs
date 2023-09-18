@@ -14,6 +14,8 @@ namespace ProyectoApp
 {
     public partial class FormProductoAgregar : Form
     {
+        private OpenFileDialog archivo = null;
+        List<string> UrlsImagenes = new List<string>();
         private Articulo articulo = null;
         public FormProductoAgregar()
         {
@@ -53,24 +55,24 @@ namespace ProyectoApp
                 }
                 else
                 {
-                 
                 servicioArticulo.AgregarArticulo(articulo);
                 
                 int idArticulo = servicioArticulo.seleccionoUltimoRegistro(articulo);
-                servicioArticulo.GuardarImagenRelacionada(idArticulo, articulo.UrlImagen);
+                    if (UrlsImagenes.Count == 0)
+                    {
+                        servicioArticulo.GuardarImagenRelacionada(idArticulo, articulo.UrlImagen);
+                    }
+                    else {
+                        servicioArticulo.AgregarImagenes(idArticulo, UrlsImagenes);
+                    }
 
                 MessageBox.Show(" Operacion exitosa ");
                 }
-
-
-
-
-
                 this.Close();
             }
             catch (Exception ex)
             {
-                throw ex;
+                MessageBox.Show("Por favor verifique los campos ingresados");
             }
         }
 
@@ -78,7 +80,7 @@ namespace ProyectoApp
         {
             ServicioCategoria servicioCategoria = new ServicioCategoria();
             ServicioMarca servicioMarca = new ServicioMarca();
-    
+
             try 
             {
                 cboIdMarca.DisplayMember = "Descripcion"; // indica que campo de la identidad Marca se muestra
@@ -89,7 +91,7 @@ namespace ProyectoApp
                 cboIdMarca.DataSource = servicioMarca.ListarMarcas();
                 cboIdCategoria.DataSource = servicioCategoria.ListarCategorias();
 
-                if(articulo != null)
+                if (articulo != null)
                 {
                     txtElemCodigo.Text = articulo.Codigo;
                     txtElemNombre.Text = articulo.Nombre;
@@ -121,6 +123,35 @@ namespace ProyectoApp
         {
             btnAgregar.Width -= 5;
             btnAgregar.Height -= 5;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (!txtImagen.Text.ToUpper().Contains("HTTP") || !txtImagen.Text.ToUpper().Contains("JPG")) {
+                MessageBox.Show("Por favor verifique la URL de la imagen.");
+            }
+            else
+            {
+                UrlsImagenes.Add(txtImagen.Text);
+                label1.Text = UrlsImagenes.Count.ToString();
+                txtImagen.Text = "";
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            archivo = new OpenFileDialog();
+            archivo.Filter = "jpg|*.jpg;|png|*.png";
+            if (archivo.ShowDialog() == DialogResult.OK)
+            {
+                UrlsImagenes.Add(archivo.FileName);
+                label1.Text = UrlsImagenes.Count.ToString();
+            }
         }
     }
         
