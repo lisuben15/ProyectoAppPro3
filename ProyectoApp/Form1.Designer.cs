@@ -32,11 +32,16 @@ namespace ProyectoApp
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.lblGestionComercial = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.btnProductos = new System.Windows.Forms.Button();
             this.btnMarcas = new System.Windows.Forms.Button();
             this.btnCategorias = new System.Windows.Forms.Button();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonPeople = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonPc = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblGestionComercial
@@ -103,12 +108,44 @@ namespace ProyectoApp
             this.btnCategorias.MouseEnter += new System.EventHandler(this.btnCategorias_MouseEnter);
             this.btnCategorias.MouseLeave += new System.EventHandler(this.btnCategorias_MouseLeave);
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonPeople,
+            this.toolStripButtonPc});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1021, 25);
+            this.toolStrip1.TabIndex = 6;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButtonPeople
+            // 
+            this.toolStripButtonPeople.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonPeople.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonPeople.Image")));
+            this.toolStripButtonPeople.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonPeople.Name = "toolStripButtonPeople";
+            this.toolStripButtonPeople.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonPeople.Text = "Integrantes";
+            this.toolStripButtonPeople.Click += new System.EventHandler(this.toolStripButtonPeople_Click);
+            // 
+            // toolStripButtonPc
+            // 
+            this.toolStripButtonPc.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonPc.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonPc.Image")));
+            this.toolStripButtonPc.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonPc.Name = "toolStripButtonPc";
+            this.toolStripButtonPc.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonPc.Text = "Catedra";
+            this.toolStripButtonPc.Click += new System.EventHandler(this.toolStripButtonPc_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1021, 505);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.btnCategorias);
             this.Controls.Add(this.btnMarcas);
             this.Controls.Add(this.btnProductos);
@@ -123,6 +160,8 @@ namespace ProyectoApp
             this.Text = "Grupo10 App";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1ProyectoApp_Load);
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -135,6 +174,9 @@ namespace ProyectoApp
         private System.Windows.Forms.Button btnProductos;
         private System.Windows.Forms.Button btnMarcas;
         private System.Windows.Forms.Button btnCategorias;
+        private ToolStrip toolStrip1;
+        private ToolStripButton toolStripButtonPeople;
+        private ToolStripButton toolStripButtonPc;
     }
 }
 

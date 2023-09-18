@@ -26,6 +26,7 @@ namespace ProyectoApp
             List<Categoria> lista = servicioCategoria.ListarCategorias();
 
             dgvCategorias.DataSource = lista;
+            dgvCategorias.Columns["Id"].Visible = false;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -118,6 +119,11 @@ namespace ProyectoApp
         {
             btnEliminar.Width -= 5;
             btnEliminar.Height -= 5;
+        }
+
+        private void dgvCategorias_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

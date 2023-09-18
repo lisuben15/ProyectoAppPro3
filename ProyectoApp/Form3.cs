@@ -27,6 +27,8 @@ namespace ProyectoApp
             List<Marca> lista = servicioMarca.ListarMarcas();
 
             dataGridView1.DataSource = lista;
+            dataGridView1.Columns["Id"].Visible = false;
+            
         }
 
      
