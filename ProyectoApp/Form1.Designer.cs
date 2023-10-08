@@ -41,16 +41,21 @@ namespace ProyectoApp
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonPeople = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonPc = new System.Windows.Forms.ToolStripButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.toolStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblGestionComercial
             // 
             this.lblGestionComercial.AutoSize = true;
-            this.lblGestionComercial.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.lblGestionComercial.BackColor = System.Drawing.Color.Black;
             this.lblGestionComercial.Font = new System.Drawing.Font("Times New Roman", 72F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGestionComercial.ForeColor = System.Drawing.Color.LightGray;
-            this.lblGestionComercial.Location = new System.Drawing.Point(251, 158);
+            this.lblGestionComercial.Location = new System.Drawing.Point(392, 63);
             this.lblGestionComercial.Name = "lblGestionComercial";
             this.lblGestionComercial.Size = new System.Drawing.Size(811, 109);
             this.lblGestionComercial.TabIndex = 0;
@@ -65,12 +70,12 @@ namespace ProyectoApp
             // 
             // btnProductos
             // 
-            this.btnProductos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnProductos.BackColor = System.Drawing.Color.Black;
             this.btnProductos.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProductos.ForeColor = System.Drawing.Color.Silver;
-            this.btnProductos.Location = new System.Drawing.Point(306, 377);
+            this.btnProductos.Location = new System.Drawing.Point(16, 281);
             this.btnProductos.Name = "btnProductos";
-            this.btnProductos.Size = new System.Drawing.Size(202, 90);
+            this.btnProductos.Size = new System.Drawing.Size(207, 90);
             this.btnProductos.TabIndex = 1;
             this.btnProductos.Text = "Productos";
             this.btnProductos.UseVisualStyleBackColor = false;
@@ -80,12 +85,12 @@ namespace ProyectoApp
             // 
             // btnMarcas
             // 
-            this.btnMarcas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnMarcas.BackColor = System.Drawing.Color.Black;
             this.btnMarcas.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMarcas.ForeColor = System.Drawing.Color.Silver;
-            this.btnMarcas.Location = new System.Drawing.Point(558, 377);
+            this.btnMarcas.Location = new System.Drawing.Point(16, 402);
             this.btnMarcas.Name = "btnMarcas";
-            this.btnMarcas.Size = new System.Drawing.Size(210, 90);
+            this.btnMarcas.Size = new System.Drawing.Size(207, 90);
             this.btnMarcas.TabIndex = 2;
             this.btnMarcas.Text = "Marcas";
             this.btnMarcas.UseVisualStyleBackColor = false;
@@ -95,12 +100,12 @@ namespace ProyectoApp
             // 
             // btnCategorias
             // 
-            this.btnCategorias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnCategorias.BackColor = System.Drawing.Color.Black;
             this.btnCategorias.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCategorias.ForeColor = System.Drawing.Color.Silver;
-            this.btnCategorias.Location = new System.Drawing.Point(815, 377);
+            this.btnCategorias.Location = new System.Drawing.Point(16, 522);
             this.btnCategorias.Name = "btnCategorias";
-            this.btnCategorias.Size = new System.Drawing.Size(210, 90);
+            this.btnCategorias.Size = new System.Drawing.Size(207, 90);
             this.btnCategorias.TabIndex = 3;
             this.btnCategorias.Text = "Categorias";
             this.btnCategorias.UseVisualStyleBackColor = false;
@@ -115,7 +120,7 @@ namespace ProyectoApp
             this.toolStripButtonPc});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1021, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1370, 25);
             this.toolStrip1.TabIndex = 6;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -139,19 +144,46 @@ namespace ProyectoApp
             this.toolStripButtonPc.Text = "Catedra";
             this.toolStripButtonPc.Click += new System.EventHandler(this.toolStripButtonPc_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel1.Controls.Add(this.lblGestionComercial);
+            this.panel1.Location = new System.Drawing.Point(0, 29);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1440, 208);
+            this.panel1.TabIndex = 8;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Black;
+            this.panel2.Controls.Add(this.btnCategorias);
+            this.panel2.Controls.Add(this.btnProductos);
+            this.panel2.Controls.Add(this.btnMarcas);
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Location = new System.Drawing.Point(0, 28);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(226, 837);
+            this.panel2.TabIndex = 9;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel3.Location = new System.Drawing.Point(48, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(127, 799);
+            this.panel3.TabIndex = 0;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(1021, 505);
+            this.ClientSize = new System.Drawing.Size(1370, 617);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.btnCategorias);
-            this.Controls.Add(this.btnMarcas);
-            this.Controls.Add(this.btnProductos);
-            this.Controls.Add(this.lblGestionComercial);
             this.DoubleBuffered = true;
-            this.ForeColor = System.Drawing.Color.DimGray;
+            this.ForeColor = System.Drawing.Color.Gray;
             this.IsMdiContainer = true;
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1028, 544);
@@ -162,6 +194,9 @@ namespace ProyectoApp
             this.Load += new System.EventHandler(this.Form1ProyectoApp_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -177,6 +212,9 @@ namespace ProyectoApp
         private ToolStrip toolStrip1;
         private ToolStripButton toolStripButtonPeople;
         private ToolStripButton toolStripButtonPc;
+        private Panel panel1;
+        private Panel panel2;
+        private Panel panel3;
     }
 }
 

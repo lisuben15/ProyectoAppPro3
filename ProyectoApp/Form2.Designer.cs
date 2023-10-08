@@ -49,8 +49,10 @@
             // 
             // dgvProductos
             // 
+            this.dgvProductos.BackgroundColor = System.Drawing.Color.White;
             this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProductos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvProductos.GridColor = System.Drawing.Color.Black;
             this.dgvProductos.Location = new System.Drawing.Point(12, 60);
             this.dgvProductos.MultiSelect = false;
             this.dgvProductos.Name = "dgvProductos";
